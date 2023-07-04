@@ -4,7 +4,7 @@ export const metadata = {
   title: 'Devsafío',
   description: 'title',
 }
- 
+
 export default function RootLayout({ children }) {
  return (
     <html lang="en">
