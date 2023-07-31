@@ -1,10 +1,11 @@
-import DropdownMultiSelect from "../Dropdown/Dropdown";
-import ExperienceBar from "../ExperienceBar/ExperienceBar";
+"use client"
+import React from "react"
+import Dropdown from "../Dropdown/Dropdown"
+import ExperienceBar from "../ExperienceBar/ExperienceBar"
 
 const FormWorkExperience = () => {
   return (
     <>
-      <h2>Experiencia Laboral</h2>
       <form>
         <div className="grid grid-cols-2 gap-4">
           <div>
@@ -51,7 +52,7 @@ const FormWorkExperience = () => {
                 <br />
               </span>
             </p>
-            <DropdownMultiSelect />
+            <Dropdown />
           </div>
           <div>
             <p>
@@ -61,18 +62,12 @@ const FormWorkExperience = () => {
                 <br />
               </span>
             </p>
-            <DropdownMultiSelect />
+            <Dropdown />
           </div>
         </div>
-        <button
-          type="submit"
-          className="btn-app btn-app-blue mt-4"
-        >
-          Continuar
-        </button>
       </form>
     </>
-  );
-};
+  )
+}
 
-export default FormWorkExperience;
+export default FormWorkExperience

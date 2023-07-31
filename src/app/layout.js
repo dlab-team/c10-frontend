@@ -1,19 +1,19 @@
-import './styles/globals.css'
+import React from "react"
+import "./styles/globals.css"
 import { Nav } from "./components/Nav/Nav"
-import { Footer } from './components/Footer/Footer'
+import { Footer } from "./components/Footer/Footer"
 
 export const metadata = {
-  title: 'Devsafío',
-  description: 'title',
+  title: "Devsafío",
+  description: "title",
 }
 
-export default function RootLayout({ children }) {
-
- return (
+const RootLayout = ({ children }) => {
+  return (
     <html lang="en">
-        
-      <body>
+      <body className="h-100vh">
         <Nav />
+
           <section>        
             {children}
           </section>
@@ -21,7 +21,8 @@ export default function RootLayout({ children }) {
         <Footer />
 
       </body>
-        
     </html>
   )
 }
+
+export default RootLayout
