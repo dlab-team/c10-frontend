@@ -2,10 +2,10 @@ export default function Signin() {
   return (
     <div>
       <br />
-      <h1>Registrate</h1>
+      <h1 className="flex flex-row justify-center w-full">Registrate</h1>
       <form>
         <label>
-          Nombre:
+          <p>Nombre:</p>
           <input type="text" placeholder=" Nombre" />
         </label>
         <br />
@@ -32,5 +32,5 @@ export default function Signin() {
         <button type="submit">Registrarse</button>
       </form>
     </div>
-  );
+  )
 }

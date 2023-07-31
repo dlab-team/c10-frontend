@@ -1,9 +1,12 @@
-import FormWorkExperience from "@devsafio/app/components/FormWorkExperience/FormWorkExperience";
-import FormWorkProfile from "@devsafio/app/components/FormWorkProfile/FormWorkProfile";
-import Link from "next/link";
+"use client"
+import React from "react"
+import FormWorkExperience from "@devsafio/app/components/FormWorkExperience/FormWorkExperience"
+import FormWorkProfile from "@devsafio/app/components/FormWorkProfile/FormWorkProfile"
+import Link from "next/link"
+
 const FormView = () => {
   return (
-    <section className="bigBox mx-auto my-12 container">
+    <section className="bigBox mx-auto my-12 container h-70 overflow-y-auto">
       <div className="whiteText">
         <h2 className="text-4xl font-bold pb-8 font-sans">
           ¡POSTULA Y ÚNETE A DEVSAFÍO!
@@ -34,7 +37,8 @@ const FormView = () => {
           <strong>
             beneficio y la garantía de ser apoyado y guiado de forma
             personalizada por un mentor senior.
-          </strong>{" "}
+          </strong>
+          {""}
           Este programa tiene una duración de 3 meses, posterior a esto tienes
           la posibilidad de ser contratado directamente por la empresa, con sus
           distintos beneficios y remuneración acorde al mercado.
@@ -42,7 +46,7 @@ const FormView = () => {
         <p className="font-extralight font-sans tracking-wide leading-relaxed py-3 text-xs md:text-base">
           Si quieres saber más de nosotros y nuestras actividades, nos puedes
           seguir en:{" "}
-          <Link href="https://www.linkedin.com/company/devsafio">
+          <Link legacyBehavior href="https://www.linkedin.com/company/devsafio">
             <a className="text-blue-500">
               https://www.linkedin.com/company/devsafio
             </a>
@@ -53,14 +57,22 @@ const FormView = () => {
           <strong>Tiempo: 5-10 minutos</strong>
         </p>
       </div>
+      <div className="mt-8"></div>
       <div>
+        <h2 className="py-3 font-bold font-sans text-2xl md:text-lg">
+          Perfil Laboral
+        </h2>
         <FormWorkProfile />
       </div>
+      <div className="mt-8"></div>
       <div>
+        <h2 className="py-3 font-bold font-sans text-2xl md:text-lg">
+          Experiencia Laboral
+        </h2>
         <FormWorkExperience />
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default FormView;
+export default FormView
