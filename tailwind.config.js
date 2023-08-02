@@ -3,11 +3,11 @@ module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}'
   ],
   theme: {
-    colors:{
-      azul: '#2738F5',
+    colors: {
+      azul: '#2738F5'
     },
     extend: {
       backgroundImage: {
@@ -31,5 +31,5 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: []
 }

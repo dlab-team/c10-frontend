@@ -1,6 +1,7 @@
 
 export default function Signin() {
   return (
+
     <section className="bg-white">
       <div className="flex justify-center items-center min-h-screen">
         <div className="max-w-xl">
