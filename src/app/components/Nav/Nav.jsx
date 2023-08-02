@@ -26,7 +26,7 @@ export function Nav (){
          </div>
 
         <nav>
-          <ul className="flex [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"> 
+          <ul className="flex [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2 "> 
             {links.map(({label, route}) => (
               <li key={route}>
                 <Link href={route}>
