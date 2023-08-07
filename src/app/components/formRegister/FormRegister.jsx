@@ -14,17 +14,16 @@ export default function FormRegister() {
         </div>
         <div>
           <label>
-            Email:
+            <p>Email:</p>
             <input type="email" placeholder=" Email" />
           </label>
-          <br />
           <label>
-            Contraseña:
+            <p>Contraseña:</p>
             <input type="password" placeholder=" Password" />
           </label>
 
           <label>
-            Confirmar Contraseña:
+            <p>Confirmar Contraseña:</p>
             <input type="password" placeholder=" Confirm Password" />
           </label>
         </div>
