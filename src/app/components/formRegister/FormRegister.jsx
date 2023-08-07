@@ -2,6 +2,9 @@ export default function FormRegister() {
   return (
     <>
       <form>
+        <div className=" flex flex-col items-center mt-4 top-0">
+          <h1 className="text-slate-900 text-5xl font-semibold">Registrate</h1>
+        </div>
         <div>
           <div className="grid grid-cols-4 content-center">
             <p className="text-neutral-800 text-2xl font-normal">Nombre:</p>

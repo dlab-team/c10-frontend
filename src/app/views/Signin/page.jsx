@@ -1,3 +1,5 @@
+import FormRegister from "@devsafio/app/components/formRegister/FormRegister";
+
 export default function Signin() {
   return (
     <div
@@ -7,9 +9,7 @@ export default function Signin() {
       via-indigo-600 
       to-purple-900"
     >
-      <div className=" flex flex-col items-center mt-4 top-0">
-        <h1 className="text-slate-900 text-5xl font-semibold">Registrate</h1>
-      </div>
+     <FormRegister/>
     </div>
   )
 }
