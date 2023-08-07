@@ -1,36 +1,15 @@
 export default function Signin() {
   return (
-    <div>
-      <br />
-      <h1 className="flex flex-row justify-center w-full">Registrate</h1>
-      <form>
-        <label>
-          <p>Nombre:</p>
-          <input type="text" placeholder=" Nombre" />
-        </label>
-        <br />
-        <label>
-          Apellido:
-          <input type="text" placeholder=" Apellido" />
-        </label>
-        <br />
-        <label>
-          Email:
-          <input type="email" placeholder=" Email" />
-        </label>
-        <br />
-        <label>
-          Contraseña:
-          <input type="password" placeholder=" Password" />
-        </label>
-        <br />
-        <label>
-          Confirmar Contraseña:
-          <input type="password" placeholder=" Confirm Password" />
-        </label>
-        <br />
-        <button type="submit">Registrarse</button>
-      </form>
+    <div
+      className="relative h-880 w-1440
+      bg-gradient-to-b
+      from-azul-500 
+      via-indigo-600 
+      to-purple-900"
+    >
+      <div className=" flex flex-col items-center mt-4 top-0">
+        <h1 className="text-slate-900 text-5xl font-semibold">Registrate</h1>
+      </div>
     </div>
   )
 }
