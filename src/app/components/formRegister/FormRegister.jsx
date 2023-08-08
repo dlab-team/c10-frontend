@@ -2,7 +2,7 @@ export default function FormRegister() {
   return (
     <>
       <form>
-        <div className=" flex flex-col items-center mt-4 top-0">
+        <div className=" flex flex-col items-center mb-4 top-0">
           <h1 className="text-slate-900 text-5xl font-semibold">Registrate</h1>
         </div>
         <div>
