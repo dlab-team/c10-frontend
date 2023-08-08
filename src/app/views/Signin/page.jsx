@@ -6,9 +6,9 @@ export default function Signin() {
     <div className="h-screen">
       <div className="absolute -z-10">
         <Image
-          src="../../util/image/backgroundimage.png"
-          layout="fill"
-          objectFit="cover"
+          src="/src/public/backgroundimage.png"
+          width={1440}
+          height={880}
           quality={100}
         />
       </div>
