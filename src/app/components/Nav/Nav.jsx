@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "next/link"
 
 const links = [
   {
@@ -17,11 +17,11 @@ const links = [
     label: "Contáctanos",
     route: "/",
   },
-];
+]
 
 export function Nav() {
   return (
-    <header className="py-6 px-10 flex top-0 w-full justify-between bg-azul">
+    <header className="py-6 px-10 grid top-0 w-full justify-between bg-azul items-center">
       <div>
         <svg
           className="tds-icon tds-icon-logo-wordmark tds-site-logo-icon"
@@ -35,19 +35,16 @@ export function Nav() {
         </svg>
       </div>
 
-        <nav>
-          <ul className="flex [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2 "> 
-            {links.map(({label, route}) => (
-              <li key={route}>
-                <Link href={route}>
-                  {label}
-                </Link>
-              </li>
-            ))}
-            </ul> 
-        </nav>
-        </header>
-        
-        
-    )
+      <nav>
+        <ul className="flex [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2">
+          {links.map(({ label, route }) => (
+            <li key={route}>
+              <Link href={route}>{label}</Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </header>
+  )
+
 }
