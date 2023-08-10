@@ -13,8 +13,11 @@ const RootLayout = ({ children }) => {
     <html lang="en">
       <body>
         <Nav />
+
         <section className="section-container">{children}</section>
+
         <Footer />
+
       </body>
     </html>
   )
