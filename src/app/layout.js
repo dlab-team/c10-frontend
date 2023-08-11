@@ -12,12 +12,8 @@ const RootLayout = ({ children }) => {
   return (
     <html lang="en">
       <body className="h-100vh">
-        <Nav />
-
-          <section>        
-            {children}
-          </section>
-          
+        <Nav />        
+          {children}  
         <Footer />
 
       </body>
