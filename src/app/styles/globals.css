@@ -5,12 +5,31 @@
 
 nav {
   color: white;
+  height: 10vh;
+  grid-area: nav;
+}
+
+body {
+  color: black;
+  background: white;
+  grid-template-areas:"nav" "main" "footer" ;
+}
+
+.section-container {
+  overflow: auto;
+  height: 85vh;
+  grid-area: main;  
+}
+section {
+  border: 3px purple;
 }
 
 
 footer {
   bottom: 0;
   width: 100%;
-  height: 50px;
+
+  height: 5vh;
+  grid-area: footer;
 }
 

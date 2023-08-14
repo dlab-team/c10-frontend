@@ -14,7 +14,6 @@ module.exports = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))'
-
       },
       height: {
         '90': '90px',
@@ -30,7 +29,7 @@ module.exports = {
         '712': '712px',
         '1200': '1200px'
       }
-    }
+    },
   },
   plugins: []
 }

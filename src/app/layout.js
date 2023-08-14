@@ -11,9 +11,12 @@ export const metadata = {
 const RootLayout = ({ children }) => {
   return (
     <html lang="en">
-      <body className="h-100vh">
-        <Nav />        
-          {children}  
+
+      <body>
+        <Nav />
+
+        <section className="section-container">{children}</section>
+
         <Footer />
 
       </body>
