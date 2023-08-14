@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+
 nav {
   color: white;
   height: 10vh;
   grid-area: nav;
 }
-
 
 body {
   color: black;
