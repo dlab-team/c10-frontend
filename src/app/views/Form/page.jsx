@@ -7,8 +7,8 @@ import Link from "next/link"
 const FormView = () => {
   return (
     <>
-      <div className="mx-auto my-12 h-70 overflow-y-auto">
-        <div className="whiteText">
+      <div className="mx-auto my-12 h-70 overflow-y-auto w-11/12 space-y-3">
+        <div className="background border rounded-2xl bg-purple-950">
           <h2 className="text-4xl font-bold pb-8 font-sans">
             ¡POSTULA Y ÚNETE A DEVSAFÍO!
           </h2>
@@ -62,16 +62,12 @@ const FormView = () => {
             <strong>Tiempo: 5-10 minutos</strong>
           </p>
         </div>
-        <div className="mt-8"></div>
-        <div>
-          <h2 className="py-3 font-bold font-sans text-2xl md:text-lg">
-            Perfil Laboral
-          </h2>
+        <div className="mt-10 space-y-3">
+          <h2 className="py-3 font-bold font-sans text-2xl">PERFIL LABORAL</h2>
           <FormWorkProfile />
         </div>
-        <div className="mt-8"></div>
-        <div>
-          <h2 className="py-3 font-bold font-sans text-2xl md:text-lg">
+        <div className="space-y-3 mt-10">
+          <h2 className="py-3 font-bold font-sans text-2xl">
             Experiencia Laboral
           </h2>
           <FormWorkExperience />

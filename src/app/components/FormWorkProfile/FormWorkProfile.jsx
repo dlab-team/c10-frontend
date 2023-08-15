@@ -1,75 +1,90 @@
-import Dropdown from '../Dropdown/Dropdown'
-import InfoWorkProfile from '../InfoWorkProfile/InfoWorkProfile'
+import Dropdown from "../Dropdown/Dropdown"
+import InfoWorkProfile from "../InfoWorkProfile/InfoWorkProfile"
 
 const FormWorkProfile = () => {
   return (
     <>
       <InfoWorkProfile />
-      <form>
+      <form className="mt-8">
         <div className="grid grid-cols-3 gap-4">
-          <div>
-            <p>
+          <div className="flex flex-col items-center space-y-1">
+            <p className="font-sans text-base font-medium">
               <span>Lenguaje de nivel 1</span>
             </p>
             <Dropdown />
           </div>
-          <div>
+          <div className="flex flex-col items-center space-y-1">
             <p>
-              <span>Bases o framwork nivel 1</span>
+              <span className="font-sans text-base font-medium">
+                Bases o framwork nivel 1
+              </span>
             </p>
             <Dropdown />
           </div>
-          <div>
+          <div className="flex flex-col items-center space-y-1">
             <p>
-              <span>Herramientas nivel 1</span>
+              <span className="font-sans text-base font-medium">
+                Herramientas nivel 1
+              </span>
             </p>
             <Dropdown />
           </div>
-          <div>
+          <div className="flex flex-col items-center space-y-1">
             <p>
-              <span>Lenguaje de nivel 2</span>
+              <span className="font-sans text-base font-medium">
+                Lenguaje de nivel 2
+              </span>
             </p>
             <Dropdown />
           </div>
-          <div>
+          <div className="flex flex-col items-center space-y-1">
             <p>
-              <span>Bases o framwork 2</span>
+              <span className="font-sans text-base font-medium">
+                Bases o framwork 2
+              </span>
             </p>
             <Dropdown />
           </div>
-          <div>
+          <div className="flex flex-col items-center space-y-1">
             <p>
-              <span>Herramientas nivel 2</span>
+              <span className="font-sans text-base font-medium">
+                Herramientas nivel 2
+              </span>
             </p>
             <Dropdown />
           </div>
-          <div>
+          <div className="flex flex-col items-center space-y-1">
             <p>
-              <span>Herramientas nivel 3</span>
+              <span className="font-sans text-base font-medium">
+                Herramientas nivel 3
+              </span>
             </p>
             <Dropdown />
           </div>
-          <div>
+          <div className="flex flex-col items-center space-y-1">
             <p>
-              <span>Bases o framwork 3</span>
+              <span className="font-sans text-base font-medium">
+                Bases o framwork 3
+              </span>
             </p>
             <Dropdown />
           </div>
-          <div>
+          <div className="flex flex-col items-center space-y-1">
             <p>
-              <span>Herramientas nivel 3</span>
+              <span className="font-sans text-base font-medium">
+                Herramientas nivel 3
+              </span>
             </p>
             <Dropdown />
           </div>
-
-          <div className="my-4">
-            <p className="mb-2">
+          <div className="flex flex-col items-center my-4 mx-auto w-[996px]">
+            <p className="mb-2 font-sans text-base font-medium">
               Indicanos alguna otra competencia, herramienta o tecnología que
               conozcas que creas importante agregar:
             </p>
             <input
               type="text"
-              className="border border-gray-300 rounded-md px-4 py-2 w-full"
+              className="mx-auto items-center border bg-sky-100 border-gray-300 rounded-md px-4 py-2 w-[996px] h-[102px]"
             />
           </div>
         </div>
