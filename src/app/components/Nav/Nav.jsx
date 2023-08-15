@@ -1,4 +1,6 @@
-import Link from "next/link"
+import Link from "next/link";
+import Image from "next/image";
+
 
 const links = [
   {
@@ -46,4 +48,5 @@ export function Nav() {
       </nav>
     </header>
   )
+
 }
