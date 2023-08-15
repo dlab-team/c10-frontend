@@ -33,3 +33,11 @@ footer {
   grid-area: footer;
 }
 
+.backgroundRegistro {
+  background-image: url('../../public/backgroundimage.png')
+}
+
+.bg-white {
+  background-color: white;
+}
+
