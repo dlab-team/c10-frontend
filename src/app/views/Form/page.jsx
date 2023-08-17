@@ -7,8 +7,8 @@ import Link from "next/link"
 const FormView = () => {
   return (
     <>
-      <div className="mx-auto my-12 h-70 overflow-y-auto w-11/12 space-y-3">
-        <div className="background border rounded-2xl bg-purple-950">
+      <div className="mx-auto my-12 overflow-y-auto w-11/12 space-y-3">
+        <div className="border rounded-2xl bg-purple-950">
           <h2 className="text-4xl font-bold pb-8 font-sans">
             ¡POSTULA Y ÚNETE A DEVSAFÍO!
           </h2>
