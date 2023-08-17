@@ -11,14 +11,14 @@ export const metadata = {
 const RootLayout = ({ children }) => {
   return (
     <html lang="en">
-
       <body>
         <Nav />
 
-        <section className="section-container">{children}</section>
+        <section className="section-container overflow-y-auto">
+          {children}
+        </section>
 
         <Footer />
-
       </body>
     </html>
   )

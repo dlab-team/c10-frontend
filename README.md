@@ -14,7 +14,7 @@ http://www.desafio.com
 
 ## Team Leader
 
-- **Leonardo Jose**
+- **Leonardo Jose Castillo Lacruz**
 
 ## Equipo Front-end
 

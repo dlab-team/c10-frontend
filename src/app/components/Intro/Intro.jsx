@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react"
 
 const Intro = ({ videoId }) => {
-  const embedUrl = `https://www.youtube.com/watch?v=S_oLr_np4S8&t=2719s`;
+  const embedUrl = `https://www.youtube.com/embed/z5NPi7WrViU`;
 
   return (
     <div className="aspect-w-16 aspect-h-9">
@@ -12,7 +12,7 @@ const Intro = ({ videoId }) => {
         allowFullScreen
       ></iframe>
     </div>
-  );
-};
+  )
+}
 
-export default Intro;
+export default Intro
