@@ -5,7 +5,7 @@ const Select = dynamic(() => import("react-select"), { ssr: false })
 
 const animatedComponentes = makeAnimated()
 
-export default function Dropdown({ options, defaultValue}) {
+export default function DropdownSimple({ options, defaultValue }) {
   return (
     <div className="box flex justify-center w-full">
       <div className="rectangle-wrapper h-12 w-full md:w-11/12 lg:w-10/12 xl:w-9/12">
@@ -13,7 +13,6 @@ export default function Dropdown({ options, defaultValue}) {
           closeMenuOnSelect={false}
           defaultValue={defaultValue}
           componentes={animatedComponentes}
-          isMulti
           options={options}
           //  className="basic-multi-select"
           classNamePrefix="select"

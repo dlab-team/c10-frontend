@@ -1,7 +1,10 @@
 "use client"
 import React from "react"
 import Dropdown from "../Dropdown/Dropdown"
+import DropdownSimple from "../Dropdownsimple/DropdownSimple"
 import ExperienceBar from "../ExperienceBar/ExperienceBar"
+import { softskillOptions } from "@devsafio/app/util/softskillOptions"
+import { experienceyearsOptions } from "@devsafio/app/util/experienceyearsOptions"
 
 const FormWorkExperience = () => {
   return (
@@ -52,7 +55,7 @@ const FormWorkExperience = () => {
                 <br />
               </span>
             </p>
-            <Dropdown />
+            <Dropdown options={softskillOptions} defaultValue={false} />
           </div>
           <div className="flex flex-col items-center space-y-1 w-[448px]">
             <p>
@@ -63,7 +66,10 @@ const FormWorkExperience = () => {
               </span>
             </p>
             <div className="flex flex-initial w-full">
-              <Dropdown />
+              <DropdownSimple
+                options={experienceyearsOptions}
+                defaultValue={false}
+              />
             </div>
           </div>
         </div>
