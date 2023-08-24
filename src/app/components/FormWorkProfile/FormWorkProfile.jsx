@@ -1,5 +1,8 @@
+import { lenguajeOptions } from "@devsafio/app/util/lenguajeOptions"
+import { frameworksOptions } from "@devsafio/app/util/frameworksOptions"
 import Dropdown from "../Dropdown/Dropdown"
 import InfoWorkProfile from "../InfoWorkProfile/InfoWorkProfile"
+import { toolsOptions } from "@devsafio/app/util/toolsOptions"
 
 const FormWorkProfile = () => {
   return (
@@ -11,7 +14,10 @@ const FormWorkProfile = () => {
             <p className="font-sans text-base font-medium">
               <span>Lenguaje de nivel 1</span>
             </p>
-            <Dropdown />
+            <Dropdown
+              options={lenguajeOptions}
+              defaulValue={false}
+            />
           </div>
           <div className="flex flex-col items-center space-y-1">
             <p>
@@ -19,7 +25,10 @@ const FormWorkProfile = () => {
                 Bases o framwork nivel 1
               </span>
             </p>
-            <Dropdown />
+            <Dropdown
+              options={frameworksOptions}
+              defaulValue={false}
+            />
           </div>
           <div className="flex flex-col items-center space-y-1">
             <p>
@@ -27,7 +36,7 @@ const FormWorkProfile = () => {
                 Herramientas nivel 1
               </span>
             </p>
-            <Dropdown />
+            <Dropdown options={toolsOptions} defaulValue={false} />
           </div>
           <div className="flex flex-col items-center space-y-1">
             <p>
@@ -35,7 +44,10 @@ const FormWorkProfile = () => {
                 Lenguaje de nivel 2
               </span>
             </p>
-            <Dropdown />
+            <Dropdown
+              options={lenguajeOptions}
+              defaulValue={false}
+            />
           </div>
           <div className="flex flex-col items-center space-y-1">
             <p>
@@ -43,7 +55,10 @@ const FormWorkProfile = () => {
                 Bases o framwork 2
               </span>
             </p>
-            <Dropdown />
+            <Dropdown
+              options={frameworksOptions}
+              defaulValue={false}
+            />
           </div>
           <div className="flex flex-col items-center space-y-1">
             <p>
@@ -51,15 +66,18 @@ const FormWorkProfile = () => {
                 Herramientas nivel 2
               </span>
             </p>
-            <Dropdown />
+            <Dropdown options={toolsOptions} defaulValue={false} />
           </div>
           <div className="flex flex-col items-center space-y-1">
             <p>
               <span className="font-sans text-base font-medium">
-                Herramientas nivel 3
+                Lenguaje nivel 3
               </span>
             </p>
-            <Dropdown />
+            <Dropdown
+              options={lenguajeOptions}
+              defaulValue={false}
+            />
           </div>
           <div className="flex flex-col items-center space-y-1">
             <p>
@@ -67,7 +85,10 @@ const FormWorkProfile = () => {
                 Bases o framwork 3
               </span>
             </p>
-            <Dropdown />
+            <Dropdown
+              options={frameworksOptions}
+              defaulValue={false}
+            />
           </div>
           <div className="flex flex-col items-center space-y-1">
             <p>
@@ -75,7 +96,7 @@ const FormWorkProfile = () => {
                 Herramientas nivel 3
               </span>
             </p>
-            <Dropdown />
+            <Dropdown options={toolsOptions} defaulValue={false} />
           </div>
           <div className="flex flex-col items-center my-4 mx-auto w-[996px]">
             <p className="mb-2 font-sans text-base font-medium">
