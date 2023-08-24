@@ -1,0 +1,16 @@
+.inputs{
+    border: 10px solid;
+    border-color: brown;
+}
+
+.form{
+    border: 10px solid ;
+    border-color: blue;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
