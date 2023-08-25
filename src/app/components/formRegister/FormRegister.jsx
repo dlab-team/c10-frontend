@@ -45,7 +45,7 @@ export default function FormRegister() {
         <div className=" flex flex-col items-center space-x-1 mb-4 top-0">
           <h1 className="font-sans text-5xl font-semibold">Regístrate</h1>
         </div>
-        <div className="flex flex-between space-x-1 space-y-2 content-center">
+        <div className="flex justify-between items-center mt-5">
           <div className="flex flex-between items-center">
             <p className="font-sans text-2xl font-normal">Nombre:</p>
             <input
@@ -66,39 +66,37 @@ export default function FormRegister() {
             />
           </div>
         </div>
-        <div className="mt-6">
-          <label className="flex flex-between items-center mt-5">
-            <p className="font-sans text-2xl font-normal h-9 w-52">Email:</p>
-            <input
-              type="email"
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-              className="relative border bg-#e2f2fe h-12 w-[552px] top-0 left-0 border-solid border-#140b34 rounded-lg"
-            />
-          </label>
-          <label className="flex flex-between items-center mt-5">
-            <p className="font-sans text-2xl font-normal h-9 w-60">
-              Contraseña:
-            </p>
-            <input
-              type="password"
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-              className="relative border bg-#e2f2fe h-12 w-[451px] top-0 left-0 border-solid border-#140b34 rounded-lg"
-            />
-          </label>
+        <div className="flex justify-between items-center mt-5">
+          <p className="font-sans text-2xl font-normal h-9 w-52">Email:</p>
+          <input
+            type="email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            className="relative border bg-#e2f2fe h-12 w-[552px] top-0 left-0 border-solid border-#140b34 rounded-lg"
+          />
+        </div>
+        <div className="flex justify-between items-center mt-5">
+          <p className="font-sans text-2xl font-normal h-9 w-60">Contraseña:</p>
+          <input
+            type="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            className="relative border bg-#e2f2fe h-12 w-[451px] top-0 left-0 border-solid border-#140b34 rounded-lg"
+          />
+        </div>
 
-          <label className="flex flex-between items-center mt-5">
-            <p className="font-sans text-2xl font-normal h-9 w-60">
-              Confirmar Contraseña:
-            </p>
-            <input
-              type="password"
-              value={confirmPassword}
-              onChange={(event) => setConfirmPassword(event.target.value)}
-              className="relative border bg-#e2f2fe h-12 w-[451px] top-0 left-0 border-solid border-#140b34 rounded-lg"
-            />
-          </label>
+        <div className="flex justify-between items-center mt-5">
+          <p className="font-sans text-2xl font-normal h-9 w-60">
+            Confirmar Contraseña:
+          </p>
+          <input
+            type="password"
+            value={confirmPassword}
+            onChange={(event) => setConfirmPassword(event.target.value)}
+            className="relative border bg-#e2f2fe h-12 w-[451px] top-0 left-0 border-solid border-#140b34 rounded-lg"
+          />
+        </div>
+        <div>
           {error && <p className="text-red-500">{error}</p>}
           <button className="flex justify-start mt-10 border border-solid rounded-lg border-#140b34">
             <p className="font-sans text-4xl font-normal h-9 w-60">
