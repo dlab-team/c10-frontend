@@ -8,6 +8,7 @@ module.exports = {
   theme: {
     colors: {
       azul: "#2738F5",
+      claro: "#E2F2FE",
     },
     extend: {
       backgroundImage: {
@@ -18,13 +19,18 @@ module.exports = {
       height: {
         90: "90px",
         108: "108px",
+        204: "204px",
+        216: "216px",
         784: "784px",
         479: "479px",
         340: "340px",
         170: "170px",
+        956: "956px"
       },
       width: {
+        285:"285px",
         582: "582px",
+        556: "556px",
         708: "708px",
         712: "712px",
         1200: "1200px",
