@@ -1,64 +1,34 @@
-'use client'
-import { useState } from 'react';
+import Link from "next/link"
+
+const links = [
+  {
+    label: "Ingresa con tu mail",
+    route: "/views/Login/Email",
+  },
+]
 
 export default function LoginForm() {
-  const [email, setEmail] = useState('');
-  const [emailError, setEmailError] = useState('');
-
-  const validateEmail = (email) => {
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-    if (!emailRegex.test(email)) {
-      setEmailError('Invalid email format');
-    } else {
-      setEmailError('');
-    }
-  };
-
-  const handleEmailChange = (e) => {
-    const newEmail = e.target.value;
-    setEmail(newEmail);
-    validateEmail(newEmail);
-  };
-
-  const handleLogin = (e) => {
-    e.preventDefault();
-    // Realiza la autenticación si la validación de formato pasó
-    if (!emailError) {
-      // Realizar la lógica de autenticación
-    }
-  };
-
   return (
     <>
       <div
-        className='flex align-middle justify-center min-w-fit[1104]'>
-        <form
-          className='flex flex-col items-center gap-5'
-          onSubmit={handleLogin}>
-          <div className='azul'>
-            <label htmlFor="email">Email</label>
-            <input
-              className='relative shadow-md bg-#e2f2fe h-12 w-[451px] top-0 left-0 rounded-lg bg-azulClaro'
-              type="text"
-              id="email"
-              value={email}
-              onChange={handleEmailChange}
-            />
-            {emailError && <p style={{ color: 'red' }}>{emailError}</p>}
-          </div>
-          <div>
-            <label htmlFor="password">Contraseña</label>
-            <input
-              className='relative shadow-md bg-#e2f2fe h-12 w-[451px] top-0 left-0 rounded-lg bg-azulClaro'
-              type='password'
-              id="password"
-            />
-          </div>
-          <button
-            className='flex justify-start mt-10 shadow-md rounded-lg px-6 pr-6 py-3 gap-2 text-azul'
-            type="submit">Login</button>
-        </form>
+        className='flex items-center justify-center p-14 backgroundRegistro min-h-full'>
+        <div
+          className="flex flex-col items-center justify-center gap-5 border-4 border-[#140B34] w-[80%] h-full rounded-md bg-[#FFF] pt-[51px] pb-[6%] px-[5%]"
+        >
+          <section className="flex flex-col items-center">
+            <h1 className="text-[#140B34] text-5xl mb-[34px] font-semibold">Únete a Devsafío</h1>
+            <p className="mx-[95px] font-normal text-[60w%] text-center">Crea tu cuenta profesional en Devsafío para que seas parte de distintas ofertas laborales que tenemos junto a importantes empresas en latinoamérica.</p>
+          </section>
+          <section className="flex flex-wrap-reverse justify-center gap-2">
+            <button className="flex justify-center border border-[#000000] shadow-md rounded-lg px-6 pr-6 py-3 w-[326px] text-[#FFF] bg-[#008FF7]">Ingresa con Twitter</button>
+            <button className="flex justify-center border border-[#000000] shadow-md rounded-lg px-6 pr-6 py-3 w-[326px] text-[#FFF] bg-[#232323]">Ingresa con GitHub</button>
+            <button className="flex justify-center border border-[#000000] shadow-md rounded-lg px-6 pr-6 py-3 w-[326px]">Ingresa con Google</button>
+            <button className="flex justify-center border border-[#000000] shadow-md rounded-lg px-6 pr-6 py-3 w-[326px] text-[#FFF] bg-[#140B34]">Ingresa con LinkedIn</button>
+            {links.map(({ label, route }) => (
+              <Link className="flex justify-center border border-[#000000] shadow-md rounded-lg px-6 pr-6 py-3 w-[326px]" key={route} href={route}>{label}</Link>
+            ))}
+          </section>
+        </div>
       </div>
     </>
   )
