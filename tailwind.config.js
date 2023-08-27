@@ -8,6 +8,7 @@ module.exports = {
   theme: {
     colors: {
       azul: "#2738F5",
+      azulClaro: "#E2F2FE",
     },
     extend: {
       backgroundImage: {
