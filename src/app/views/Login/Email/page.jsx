@@ -1,7 +1,8 @@
 'use client'
 import { useState } from 'react';
 
-function authUser(email, password) {
+async function authUser(email, password) {
+
     const request = {
         method: "Post",
         headers: {
@@ -13,15 +14,7 @@ function authUser(email, password) {
         }),
     }
 
-    const acceso = fetch('http://209.38.245.108:3000/auth/signin', request)
-        .then((res) => {
-            res.json().then((data) => {
-                localStorage.setItem('access_token', data.access_token);
-            })
-        })
-        .catch((err) => {
-            console.log(err);
-        })
+    const acceso = await fetch('http://209.38.245.108:3000/auth/signin', request)
 
     return acceso;
 }
@@ -30,6 +23,7 @@ export default function EmailLogin() {
     const [email, setEmail] = useState('');
     const [emailError, setEmailError] = useState('');
     const [password, setPassword] = useState('');
+    const [success, setSuccess] = useState('');
 
     const validateEmail = (email) => {
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -61,11 +55,24 @@ export default function EmailLogin() {
         }
     };
 
+    const submit_login = async () => {
+        const isSuccess = await authUser(email, password);
+        isSuccess.json().then((data) => {
+                localStorage.setItem('access_token', data.access_token);
+        })
+        .catch((err) => {
+            console.log(err);
+            
+        })
+        setSuccess(isSuccess.ok);
+    }
+
     return (
         <>
             <div className='flex items-center justify-center p-14 backgroundRegistro min-h-full'>
                 <form
-                    className='flex flex-col items-center justify-center w-[80%] h-full gap-5 border-4 rounded-md bg-[#FFF] pt-[51px] pb-[1%] px-[5%]'
+                    className='flex flex-col items-center justify-center w-[80%] h-full gap-5 rounded-md bg-[#FFF] pt-[51px] pb-[1%] px-[5%]'
+                    style={success ? {border:'5px solid green'} : (success !== false ? {border:'5px solid black'} : {border:'5px solid red'} )}
                     onSubmit={handleLogin}>
                     <h1 className='text-[#140B34] text-5xl mb-[34px] font-semibold text-center'>Iniciar Sesión</h1>
                     <div className='flex flex-col'>
@@ -89,15 +96,13 @@ export default function EmailLogin() {
                             onChange={handlePassChanged}
                         />
                     </div>
-                    <>
-                        <button
-                            className="flex justify-center border border-[#000000] mt-10 shadow-md rounded-lg px-6 pr-6 py-3 gap-2 text-azul"
-                            onClick={async () => await authUser(email, password)}
-                            type="submit"
-                        >
-                            Login
-                        </button>
-                    </>
+                    <button
+                        className="flex justify-center border border-[#000000] mt-10 shadow-md rounded-lg px-6 pr-6 py-3 gap-2 text-azul"
+                        onClick={() => submit_login()}
+                        type="submit"
+                    >
+                        Login
+                    </button>
                 </form>
             </div>
         </>
