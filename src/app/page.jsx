@@ -1,15 +1,15 @@
 import Image from "next/image"
 import Imagen from "../public/Imagen.png"
-import Dev1 from "../public/Dev1.png"
-import Dev2 from "../public/Dev2.png"
-import Dev3 from "../public/Dev3.png"
+import Dev1 from "../public/aceleramos.png"
+import Dev2 from "../public/acompañamos.png"
+import Dev3 from "../public/potenciamos.png"
 import Intro from "./components/Intro/Intro"
 
 export default function Page() {
     
   return (
     <div>
-      <div className="relative mx-auto overflow-y-auto w-full h-784  text-white">
+      <div className="relative mx-auto overflow-y-auto w-full h-784">
         <Image
           src={Imagen}
           alt="Picture of the author"
@@ -19,23 +19,25 @@ export default function Page() {
           sizes="100vw"
           style={{ objectFit: "cover" }}
         />
-        <div className="absolute top-[145px]">
-          <h1 className="text-7xl w-708 h-108  ml-[120px]">
+        <div className="absolute top-[145px] ">
+          <h1 className="text-7xl w-708 h-108  ml-[120px] font-bold  text-white">
             ¿Buscas talento TI?
           </h1>
-          <h2 className="text-4xl w-582 h-108  ml-[120px]">
-            Contrata Talento TI rápido, inteligente y eficiente
+          <h2 className="text-4xl w-582 h-108  ml-[120px]  text-white">
+          Contrata <span className="text-azulito">Talento TI </span> rápido, inteligente y eficiente
           </h2>
           <br></br>
-          <p className="text-xl w-712 h-90 ml-[120px]">
+          <p className="text-xl w-712 h-90 ml-[120px] text-white">
             Encontramos profesionales en 5 días y los acompañamos por 3 meses
             con tutores senior para potenciar y acelerar sus habilidades
             técnicas{" "}
           </p>
           <br></br>
-          <a className="border-2 rounded-full font-extrabold  px-4 py-4 ml-[120px] top-[597px] ">
-            QUIERO CONTRATAR
+          <div className="w-full flex items-center justify-center md:justify-start ml-[120px] text-3xl">
+          <a>
+            <button  type="button" className="  mx-2 py-2 px-4  lg:text-base font-bold text-bright-blue uppercase leading-9 bg-gray-100 rounded-3xl w-44 lg:w-52 h-14 hover:bg-bright-blue hover:text-white focus:ring-4 focus:ring-blue-300 text-azul">QUIERO CONTRATAR</button>
           </a>
+          </div>
         </div>
       </div>
 
@@ -46,10 +48,12 @@ export default function Page() {
               ¿Cómo funcionamos?
             </h1>
             <br></br>
-            <p className="text-center text-2xl">
-              Da click a nuestro video y en sólo 60 segundos conoce Devsafio y
-              cómo estamos cambiando el mundo TI, acelerando y potenciando las
-              células tecnológicas.
+            <p className="text-justify text-2xl">
+            Da click a nuestro video y en sólo 60 segundos conoce
+            <strong style={{ color: "#2738f5" }}> Devsafio </strong>y cómo
+            estamos
+            <strong style={{ color: "#2738f5" }}> cambiando el mundo TI</strong>
+            , acelerando y potenciando las células tecnológicas.
             </p>
           </div>
           <div className=" w-1/2 p-2">
@@ -58,19 +62,19 @@ export default function Page() {
         </div>
       </div>
 
-      <div className=" bg-claro lk top-[1359px] w-full h-956">
+      <div className="pb-6 bg-claro top-[1359px] w-full h-956">
         <br></br>
         <br></br>
-        <div className="ml-32  w-1200 h-204">
-            <h1 className="text-center text-3xl font-bold">
+        <div className="text-center pt-3 mx-5 px-5 ">
+            <h1 className="pt-6 font-bold text-3xl">
                 Sin Juniors no hay Seniors
             </h1>
             <br></br>
-            <p className="text-2xl text-center">En este programa unimos la rapidez, eficiencia y visión de un desarrollador junior junto con la experiencia y liderazgo de un senior TI, quien acompañará al talento junior contratado para potenciar tu área digital, acá te explicamos cómo:</p>
+            <h3 className='pt-4 p-6  mx-14 text-2xl'>En este programa unimos la <b className='text-[#2738f5]'>rapidez, eficiencia y visión de un desarrollador junior</b> junto con la <b className='text-[#2738f5]'>experiencia y liderazgo de un senior TI</b>, quien acompañará al talento junior contratado para potenciar tu área digital, acá te explicamos cómo:</h3>
          </div>
-  
-        <div className="flex items-center justify-center ">
+        <div className="pb-6 grid grid-cols-3 grid-rows-1 gap-6  justify-items-center content-center  my-10 mx-5 px-10">
         <div className="w-285 h-286">
+        <img  className='w-64   pt-3  pb-8' src={Dev1} alt="pablita" />
             <h1 className="text-center text-3xl font-bold">
             Aceleramos
             </h1>
@@ -83,6 +87,7 @@ export default function Page() {
             </p>
         </div>
         <div className="w-285 h-286">
+        <img  className='w-64   pt-3  pb-8' src={Dev2} alt="pablita" />
             <h1 className="text-center text-3xl font-bold">
             Acompañamos
             </h1>
@@ -95,6 +100,7 @@ export default function Page() {
             </p>
         </div>
         <div className="w-285 h-286">
+        <img  className='w-64   pt-3  pb-8' src={Dev3} alt="pablita" />
             <h1 className="text-center text-3xl font-bold">
             Potenciamos
             </h1>
