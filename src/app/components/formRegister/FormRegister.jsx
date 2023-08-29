@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useRouter } from "next/router"
 
 export default function FormRegister() {
   const [firstName, setFirstName] = useState("")
@@ -11,14 +12,35 @@ export default function FormRegister() {
   const handleFormSubmit = async (event) => {
     event.preventDefault()
 
+    if (!firstName || !lastName || !email || !password || !confirmPassword) {
+      setError("Por favor, complete todos los campos.")
+    }
+
     if (password !== confirmPassword) {
       setError("Las contraseñas no coinciden")
       return
     }
-    if (!firstName || !lastName || !email || !password || !!confirmPassword) {
-      setError("por favor, complete campos obligatorios")
+    const emailRegex = /^\S+@\S+\.\S+$/
+    if (!emailRegex.test(email)) {
+      setError("Por favor, ingrese un correo electrónico válido.")
       return
     }
+
+    try {
+      const response = await fetch(
+        `http://209.38.245.108:3000/auth/check-email?email=${email}`,
+      )
+      const data = await response.json()
+      if (data.exists) {
+        setError("Este correo electrónico ya está registrado.")
+        return
+      }
+    } catch (error) {
+      console.error("ocurrio un error", error)
+      setError("Pagina presenta problemas, intentelo mas tarde por favor")
+      return
+    }
+
     try {
       const response = await fetch("http://209.38.245.108:3000/auth/signup", {
         method: "POST",
@@ -26,18 +48,25 @@ export default function FormRegister() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          firstName,
-          lastName,
+          first_name: firstName,
+          last_name: lastName,
           email,
           password,
+          id_user_role: 1,
         }),
       })
 
-      if (response.ok) {
-        console.log("Registro exitoso")
+      const data = await response.json()
+      const accesstoken = data.access_token
+      if (accesstoken) {
+        const router = useRouter()
+        router.push("/src/app/views/Form/page.jsx")
       }
     } catch (error) {
-      console.error("ocurrio un erro", error)
+      console.error("ocurrio un error", error)
+      setError(
+        "Pagina presenta problemas en este momento, intentelo mas tarde.",
+      )
     }
   }
   return (
@@ -60,7 +89,7 @@ export default function FormRegister() {
               className="relative border bg-sky-100 h-12 w-64 top-0 left-0 border-solid border-#140b34  rounded-lg"
             />
           </div>
-          <div className=" flex flex-between items-center">
+          <div className=" flex justify-between items-center">
             <p className="font-sans text-2xl font-normal">Apellido:</p>
             <input
               type="text"
