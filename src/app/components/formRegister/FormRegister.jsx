@@ -26,7 +26,7 @@ export default function FormRegister() {
       return
     }
 
-    try {
+    /* try {
       const response = await fetch(
         `http://209.38.245.108:3000/auth/check-email?email=${email}`,
       )
@@ -39,7 +39,7 @@ export default function FormRegister() {
       console.error("ocurrio un error", error)
       setError("Pagina presenta problemas, intentelo mas tarde por favor")
       return
-    }
+    } */
 
     try {
       const response = await fetch("http://209.38.245.108:3000/auth/signup", {
