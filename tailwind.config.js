@@ -7,9 +7,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        azul: "#2738F5",
-      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -17,6 +14,7 @@ module.exports = {
       },
       colors: {
         azul: "#2738F5",
+        azulClaro: "#E2F2FE",
         claro: "#E2F2FE",
         azulito: "#008FF7"
       },
