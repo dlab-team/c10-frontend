@@ -1,5 +1,5 @@
 import { useState } from "react"
-
+import buttonRouter from "../ButtonRouter/buttonRouter"
 
 export default function FormRegister() {
   const [firstName, setFirstName] = useState("")
@@ -8,6 +8,7 @@ export default function FormRegister() {
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
   const [error, setError] = useState("")
+ 
 
   const handleFormSubmit = async (event) => {
     event.preventDefault()
@@ -23,8 +24,9 @@ export default function FormRegister() {
     const emailRegex = /^\S+@\S+\.\S+$/
     if (!emailRegex.test(email)) {
       setError("Por favor, ingrese un correo electrónico válido.")
-      return
+
     }
+  }
 
     /* try {
       const response = await fetch(
@@ -40,32 +42,33 @@ export default function FormRegister() {
       setError("Pagina presenta problemas, intentelo mas tarde por favor")
       return
     } */
+    const handleClick = async () => {
+      const response = await fetch("http://209.38.245.108:3000/auth/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          first_name: firstName,
+          last_name: lastName,
+          email,
+          password,
+          id_user_role: 1,
+        }),
+      })
 
-    const response = await fetch("http://209.38.245.108:3000/auth/signup", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        first_name: firstName,
-        last_name: lastName,
-        email,
-        password,
-        id_user_role: 1,
-      }),
-    })
-
-    const data = await response.json()
-    console.log("Datos recibidos:", data)
-    const accesstoken = data.access_token
-    if (accesstoken) {
-      console.log("Token de acceso encontrado", accesstoken)
-      //window.location.href = "/views/Form"
-    } else {
-      console.error("La respuesta presenta un error en el token", error)
-      setError("No se puede obtener acceso.")
+      const data = await response.json()
+      console.log("Datos recibidos:", data)
+      const accesstoken = data.access_token
+      if (accesstoken) {
+        console.log("Token de acceso encontrado", accesstoken)
+        return accesstoken
+      } else {
+        console.error("La respuesta presenta un error en el token", error)
+        setError("No se puede obtener acceso.")
+      }
     }
-  }
+  
 
   return (
     <>
@@ -129,11 +132,7 @@ export default function FormRegister() {
         </div>
         <div className=" flex flex-col-reverse justify-center items-center mt-10">
           {error && <p className="text-red-500">{error}</p>}
-          <button className="flex justify-center h-12 w-80 bg-blue-900 items-center border border-solid rounded-lg border-#140b34">
-            <p className="text-white font-sans text-4xl font-normal h-9 w-60">
-              Registrarse
-            </p>
-          </button>
+          <buttonRouter destination="/view/Form" buttonText="Registro" onClick={handleClick} />
         </div>
       </form>
     </>
