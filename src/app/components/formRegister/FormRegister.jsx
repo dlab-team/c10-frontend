@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useRouter } from "next/router"
+
 
 export default function FormRegister() {
   const [firstName, setFirstName] = useState("")
@@ -41,34 +41,32 @@ export default function FormRegister() {
       return
     } */
 
-    try {
-      const response = await fetch("http://209.38.245.108:3000/auth/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          first_name: firstName,
-          last_name: lastName,
-          email,
-          password,
-          id_user_role: 1,
-        }),
-      })
+    const response = await fetch("http://209.38.245.108:3000/auth/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        first_name: firstName,
+        last_name: lastName,
+        email,
+        password,
+        id_user_role: 1,
+      }),
+    })
 
-      const data = await response.json()
-      const accesstoken = data.access_token
-      if (accesstoken) {
-        const router = useRouter()
-        router.push("/src/app/views/Form/page.jsx")
-      }
-    } catch (error) {
-      console.error("ocurrio un error", error)
-      setError(
-        "Pagina presenta problemas en este momento, intentelo mas tarde.",
-      )
+    const data = await response.json()
+    console.log("Datos recibidos:", data)
+    const accesstoken = data.access_token
+    if (accesstoken) {
+      console.log("Token de acceso encontrado", accesstoken)
+      //window.location.href = "/views/Form"
+    } else {
+      console.error("La respuesta presenta un error en el token", error)
+      setError("No se puede obtener acceso.")
     }
   }
+
   return (
     <>
       <form
