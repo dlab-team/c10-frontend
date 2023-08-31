@@ -1,3 +1,5 @@
 {
-    "liveServer.settings.ChromeDebuggingAttachment": false
+    "liveServer.settings.ChromeDebuggingAttachment": false,
+    "tabnine.receiveBetaChannelUpdates": true,
+    "editor.suggest.showStatusBar": true
 }
