@@ -62,6 +62,7 @@ const FormView = () => {
             <strong>Tiempo: 5-10 minutos</strong>
           </p>
         </div>
+       
         <div className="mt-10 space-y-3">
           <h2 className="py-3 font-bold font-sans text-2xl">PERFIL LABORAL</h2>
           <FormWorkProfile />
