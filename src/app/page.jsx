@@ -74,7 +74,7 @@ export default function Page() {
          </div>
         <div className="pb-6 grid grid-cols-3 grid-rows-1 gap-6  justify-items-center content-center  my-10 mx-5 px-10">
         <div className="w-285 h-286">
-        <img  className='w-64   pt-3  pb-8' src={Dev1} alt="pablita" />
+        <Image  className='w-64   pt-3  pb-8' src={Dev1} alt="pablita" />
             <h1 className="text-center text-3xl font-bold">
             Aceleramos
             </h1>
@@ -87,7 +87,7 @@ export default function Page() {
             </p>
         </div>
         <div className="w-285 h-286">
-        <img  className='w-64   pt-3  pb-8' src={Dev2} alt="pablita" />
+        <Image  className='w-64   pt-3  pb-8' src={Dev2} alt="pablita" />
             <h1 className="text-center text-3xl font-bold">
             Acompañamos
             </h1>
@@ -100,7 +100,7 @@ export default function Page() {
             </p>
         </div>
         <div className="w-285 h-286">
-        <img  className='w-64   pt-3  pb-8' src={Dev3} alt="pablita" />
+        <Image  className='w-64   pt-3  pb-8' src={Dev3} alt="pablita" />
             <h1 className="text-center text-3xl font-bold">
             Potenciamos
             </h1>
