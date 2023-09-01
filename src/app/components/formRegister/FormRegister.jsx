@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
+import { storeAccess } from "@devsafio/app/util/accessUserManager"
 
 export default function FormRegister() {
   const [firstName, setFirstName] = useState("")
@@ -42,7 +43,7 @@ export default function FormRegister() {
       return
     } */
   const handleClick = async () => {
-    const response = await fetch("http://209.38.245.108:3000/auth/signup", {
+    const response = await fetch("https://c10.leonardojose.dev/auth/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -55,12 +56,14 @@ export default function FormRegister() {
         id_user_role: 1,
       }),
     })
-
+   
     const data = await response.json()
+
     console.log("Datos recibidos:", data)
     const accesstoken = data.access_token
     if (accesstoken) {
       console.log("Token de acceso encontrado", accesstoken)
+      storeAccess(data)
       router.push("/views/Form", { scroll: false })
     } else {
       console.error("La respuesta presenta un error en el token", error)
