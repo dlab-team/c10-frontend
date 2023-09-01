@@ -1,4 +1,5 @@
 'use client'
+import { storeAccess } from '@devsafio/app/util/accessUserManager';
 import { useState } from 'react';
 
 async function authUser(email, password) {
@@ -24,6 +25,7 @@ export default function EmailLogin() {
     const [emailError, setEmailError] = useState('');
     const [password, setPassword] = useState('');
     const [success, setSuccess] = useState('');
+    // const [isEmpy, setIsEmpy] = useState('');
 
     const validateEmail = (email) => {
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -50,20 +52,14 @@ export default function EmailLogin() {
     const handleLogin = (e) => {
         e.preventDefault();
         // Realiza la autenticación si la validación de formato pasó
-        if (!emailError) {
-            // Realizar la lógica de autenticación
+        if (!emailError && !(password.length === 0 || email.length === 0)) {
+            submitLogin();
         }
     };
 
-    const submit_login = async () => {
+    const submitLogin = async () => {
         const isSuccess = await authUser(email, password);
-        isSuccess.json().then((data) => {
-                localStorage.setItem('access_token', data.access_token);
-        })
-        .catch((err) => {
-            console.log(err);
-            
-        })
+        storeAccess(isSuccess.json());
         setSuccess(isSuccess.ok);
     }
 
@@ -97,9 +93,9 @@ export default function EmailLogin() {
                         />
                     </div>
                     <button
-                        className="flex justify-center border border-[#000000] mt-10 shadow-md rounded-lg px-6 pr-6 py-3 gap-2 text-azul"
-                        onClick={() => submit_login()}
+                        className="flex justify-center border border-[#000000] mt-10 shadow-md rounded-lg px-6 pr-6 py-3 gap-2 text-azul disabled:bg-gray-300 disabled:opacity-50"
                         type="submit"
+                        disabled={ password.length === 0 || email.length === 0 }
                     >
                         Login
                     </button>
