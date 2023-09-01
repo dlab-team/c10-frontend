@@ -1,35 +1,33 @@
 export class TokenNotValidException extends Error {
-    constructor(message) {
-        super(message);
-        this.name = 'TokenNotValidException';
-    }
+	constructor(message) {
+		super(message);
+		this.name = 'TokenNotValidException';
+	}
 }
 
 export class TokenNotFoundException extends Error {
-    constructor(message) {
-        super(message);
-        this.name = 'TokenNotFoundException';
-    }
+	constructor(message) {
+		super(message);
+		this.name = 'TokenNotFoundException';
+	}
 }
 
 
 /**
- * Guardado de token en el navegador,
- * ejemplo: storeAccess(promise.json());
+ * @typedef    {Object}    json_res
+ * @property   {string}    access_token  { description }
  *
- * @param      {Promise<any>}  value   funcion .json() resultante de
- *                                     fetch a la api
+ * Guardado de token en el navegador, ejemplo: storeAccess(promise.json());
+ *
+ * @param      {json_res}  value         funcion .json() resultante de fetch a
+ *                                       la api
  */
-export function storeAccess(value){
-	value.then((data) => {
-		if (data.access_token){
-	    	localStorage.setItem('access_token', data.access_token);
-		}else{
-			throw new TokenNotValidException('Token No valido');
-		}
-	}).catch((err) => {
-		console.log(err); 
-	});
+export function storeAccess(value) {
+	if (value.access_token) {
+		localStorage.setItem('access_token', value.access_token);
+	} else {
+		throw new TokenNotValidException('El token no valido');
+	}
 }
 
 
@@ -43,14 +41,14 @@ export function storeAccess(value){
  * @throws {TokenNotFoundException} Se lanza si el token no se encuentra en el almacenamiento local.
  * @return {AuthorizationData}  Devuele token valido guardado
  */
-export function getAccessUser(){  	
+export function getAccessUser() {  	
 	const access = localStorage.getItem('access_token');
-	if (!access){
+	if (!access) {
 		throw new TokenNotFoundException('Token no encontrado');
-	}else{
+	} else {
 		const Authorization = {
-    		'Authorization': `Bearer ${access}`
-  		}
+			'Authorization': `Bearer ${access}`
+		}
 		return {
 			token: access,
 			Authorization
