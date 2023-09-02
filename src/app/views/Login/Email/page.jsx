@@ -1,6 +1,9 @@
 'use client'
 import { storeAccess } from '@devsafio/app/util/accessUserManager';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import Image from 'next/image';
+import spin from './../../../../public/loading.png'
 
 async function authUser(email, password) {
 
@@ -15,17 +18,20 @@ async function authUser(email, password) {
         }),
     }
 
-    const acceso = await fetch('http://209.38.245.108:3000/auth/signin', request)
+    const acceso = await fetch('https://c10.leonardojose.dev/auth/signin', request)
 
     return acceso;
 }
 
 export default function EmailLogin() {
+    const router = useRouter();
+
     const [email, setEmail] = useState('');
     const [emailError, setEmailError] = useState('');
     const [password, setPassword] = useState('');
     const [success, setSuccess] = useState('');
-    // const [isEmpy, setIsEmpy] = useState('');
+    const [successMessage, SetSuccessMessage] = useState('');
+    const [redirect, setRedirect] = useState('')
 
     const validateEmail = (email) => {
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -48,19 +54,29 @@ export default function EmailLogin() {
         setPassword(newPass);
     }
 
-
     const handleLogin = (e) => {
         e.preventDefault();
         // Realiza la autenticación si la validación de formato pasó
         if (!emailError && !(password.length === 0 || email.length === 0)) {
-            submitLogin();
+            const readyForRedirect = submitLogin();
+            setRedirect(readyForRedirect);
+            if (readyForRedirect) {
+                router.push("/views/Form", { scroll: false })
+            }
         }
     };
 
     const submitLogin = async () => {
         const isSuccess = await authUser(email, password);
-        storeAccess(isSuccess.json());
+        const data = await isSuccess.json();
         setSuccess(isSuccess.ok);
+        if (success.ok) {
+            storeAccess(data);
+            return true;
+        } else {
+            SetSuccessMessage(`Error: ${data.message}`)
+            return false;
+        }
     }
 
     return (
@@ -68,7 +84,7 @@ export default function EmailLogin() {
             <div className='flex items-center justify-center p-14 backgroundRegistro min-h-full'>
                 <form
                     className='flex flex-col items-center justify-center w-[80%] h-full gap-5 rounded-md bg-[#FFF] pt-[51px] pb-[1%] px-[5%]'
-                    style={success ? {border:'5px solid green'} : (success !== false ? {border:'5px solid black'} : {border:'5px solid red'} )}
+                    style={success ? { border: '5px solid green' } : (success !== false ? { border: '5px solid black' } : { border: '5px solid red' })}
                     onSubmit={handleLogin}>
                     <h1 className='text-[#140B34] text-5xl mb-[34px] font-semibold text-center'>Iniciar Sesión</h1>
                     <div className='flex flex-col'>
@@ -92,12 +108,13 @@ export default function EmailLogin() {
                             onChange={handlePassChanged}
                         />
                     </div>
+                    {successMessage.length !== 0 && (success !== true && <p>{successMessage}</p>)}
                     <button
                         className="flex justify-center border border-[#000000] mt-10 shadow-md rounded-lg px-6 pr-6 py-3 gap-2 text-azul disabled:bg-gray-300 disabled:opacity-50"
                         type="submit"
-                        disabled={ password.length === 0 || email.length === 0 }
+                        disabled={password.length === 0 || email.length === 0 || redirect === true}
                     >
-                        Login
+                        Login {redirect && <Image src={spin} className='animate-spin h-5 w-5 mr-3'></Image>}
                     </button>
                 </form>
             </div>
