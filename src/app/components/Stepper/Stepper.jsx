@@ -4,6 +4,7 @@ import "./stepper.css"
 import { TiTick } from "react-icons/ti"
 import FormWorkProfile from "../FormWorkProfile/FormWorkProfile"
 import FormWorkExperience from "../FormWorkExperience/FormWorkExperience"
+import TypeWork from "../TypeWork/TypeWork"
 const Stepper = () => {
   const steps = ["step1", "step2", "step3"]
   const [currentStep, setCurrentStep] = useState(1)
@@ -32,6 +33,7 @@ const Stepper = () => {
             <p className="text-gray-500">{step}</p>
             {i + 1 === 3 && <FormWorkProfile />}
             {i + 1 === 4 && <FormWorkExperience />}
+            {i + 1 === 5 && <TypeWork />}
           </div>
         ))}
       </div>
