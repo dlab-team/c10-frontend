@@ -1,4 +1,3 @@
-"use client"
 import React from "react"
 import FormWorkExperience from "@devsafio/app/components/FormWorkExperience/FormWorkExperience"
 import FormWorkProfile from "@devsafio/app/components/FormWorkProfile/FormWorkProfile"
