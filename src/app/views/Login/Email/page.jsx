@@ -59,7 +59,6 @@ export default function EmailLogin() {
         // Realiza la autenticación si la validación de formato pasó
         if (!emailError && !(password.length === 0 || email.length === 0)) {
             const readyForRedirect = await submitLogin();
-            console.log(readyForRedirect);
             setRedirect(readyForRedirect);
             if (readyForRedirect) {
                 router.push("/views/Form", { scroll: false })
@@ -71,7 +70,6 @@ export default function EmailLogin() {
         const isSuccess = await authUser(email, password);
         const data = await isSuccess.json();
         setSuccess(isSuccess.ok);
-        console.log(success)
         if (isSuccess.ok) {
             storeAccess(data);
             return true;
