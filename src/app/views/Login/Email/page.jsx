@@ -54,11 +54,11 @@ export default function EmailLogin() {
         setPassword(newPass);
     }
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
         // Realiza la autenticación si la validación de formato pasó
         if (!emailError && !(password.length === 0 || email.length === 0)) {
-            const readyForRedirect = submitLogin();
+            const readyForRedirect = await submitLogin();
             setRedirect(readyForRedirect);
             if (readyForRedirect) {
                 router.push("/views/Form", { scroll: false })
@@ -70,7 +70,7 @@ export default function EmailLogin() {
         const isSuccess = await authUser(email, password);
         const data = await isSuccess.json();
         setSuccess(isSuccess.ok);
-        if (success.ok) {
+        if (isSuccess.ok) {
             storeAccess(data);
             return true;
         } else {
