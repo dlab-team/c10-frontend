@@ -3,6 +3,8 @@ import React from "react"
 import FormWorkExperience from "@devsafio/app/components/FormWorkExperience/FormWorkExperience"
 import FormWorkProfile from "@devsafio/app/components/FormWorkProfile/FormWorkProfile"
 import Link from "next/link"
+import InfoPersonal from "@devsafio/app/components/FormPersonalInformation/InfoPersonal"
+import EducationPersonal from "@devsafio/app/components/FormPersonalInformation/EducationPersonal"
 
 const FormView = () => {
   return (
@@ -61,6 +63,14 @@ const FormView = () => {
           <p className="py-3 font-sans text-lg">
             <strong>Tiempo: 5-10 minutos</strong>
           </p>
+        </div>
+        <div className="mt-10 space-y-3">
+          <h2 className="py-3 font-bold font-sans text-2xl">INFORMACION PERSONAL</h2>
+          <InfoPersonal/>
+        </div>
+        <div className="mt-10 space-y-3">
+          <h2 className="py-3 font-bold font-sans text-2xl">PERFIL EDUCACIONAL</h2>
+          <EducationPersonal/>
         </div>
        
         <div className="mt-10 space-y-3">
