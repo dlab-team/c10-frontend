@@ -1,6 +1,5 @@
 "use client"
 
-import axios from "axios"
 import React, { useEffect, useState } from "react"
 import "./infoPersonal.css"
 
@@ -15,19 +14,19 @@ const InfoPersonal = () => {
   const [position, setPosition] = useState([])
 
   useEffect(() => {
-    const statusUrl = "http://209.38.245.108:3000/job/status"
-    const positionUrl = "http://209.38.245.108:3000/job/position"
-    axios
-      .get(statusUrl)
-      .then((res) => {
-        setApiStatus(res.data)
+    const statusUrl = "https://c10.leonardojose.dev/job/status"
+    const positionUrl = "https://c10.leonardojose.dev/job/position"
+    fetch(statusUrl)
+      .then((res) => res.json())
+      .then((data) => {
+        setApiStatus(data)
       })
       .catch((err) => console.log(err))
 
-    axios
-      .get(positionUrl)
-      .then((res) => {
-        setPosition(res.data)
+    fetch(positionUrl)
+      .then((res) => res.json())
+      .then((data) => {
+        setPosition(data)
       })
       .catch((err) => console.log(err))
   }, [])
@@ -120,27 +119,37 @@ const InfoPersonal = () => {
         </label>
         <div className="contain__info2">
           <div className="contain__position">
-          <p>¿Cual o cuales cargados te gustaria optar?<span className="asterisco">*</span></p>
             <p>
-              <span className="span__cargos">Ten encuenta: </span>De acuerdo al cargo que postules,te
-              pediremos que seas capaz de demostrarlo de manera practica durante
-              el prceso de seleccion:
+              ¿Cual o cuales cargados te gustaria optar?
+              <span className="asterisco">*</span>
+            </p>
+            <p>
+              <span className="span__cargos">Ten encuenta: </span>De acuerdo al
+              cargo que postules,te pediremos que seas capaz de demostrarlo de
+              manera practica durante el prceso de seleccion:
             </p>
             {position?.map((pos) => (
               <label>
                 <input type="checkbox" key={pos.id} value={pos.position} />
                 {pos.position}
-                
               </label>
             ))}
           </div>
           <div className="contain__position">
-           <p> ¿Cual es tu estado laboral Actual?<span className="asterisco">*</span></p>
+            <p>
+              {" "}
+              ¿Cual es tu estado laboral Actual?
+              <span className="asterisco">*</span>
+            </p>
             {apiStatus?.map((status) => (
               <label>
-                <input type="radio" name="posicion laboral" key={status.id} value={status.state} /> 
+                <input
+                  type="radio"
+                  name="posicion laboral"
+                  key={status.id}
+                  value={status.state}
+                />
                 {status.state}
-                
               </label>
             ))}
           </div>
