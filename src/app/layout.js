@@ -14,7 +14,7 @@ const RootLayout = ({ children }) => {
       <body>
         <Nav />
 
-        <section className="section-container overflow-y-auto">
+        <section className="section-container overflow-y-auto overflow-x-hidden">
           {children}
         </section>
 
