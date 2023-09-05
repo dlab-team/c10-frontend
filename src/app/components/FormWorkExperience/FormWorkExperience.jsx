@@ -9,7 +9,7 @@ const FormWorkExperience = () => {
   return (
     <>
       <h1 className="py-3 font-bold font-sans text-2xl">
-        EXPERIENCI Y TRABAJO
+        EXPERIENCIA Y TRABAJO
       </h1>
       <form>
         <div className="grid grid-cols-2 gap-4">
