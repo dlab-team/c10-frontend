@@ -8,9 +8,6 @@ import { experienceyearsOptions } from "@devsafio/app/util/experienceyearsOption
 const FormWorkExperience = () => {
   return (
     <>
-      <h1 className="py-3 font-bold font-sans text-2xl">
-        EXPERIENCIA Y TRABAJO
-      </h1>
       <form>
         <div className="grid grid-cols-2 gap-4">
           <div className="flex flex-col items-center space-y-1">

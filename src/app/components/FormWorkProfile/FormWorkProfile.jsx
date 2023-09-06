@@ -7,7 +7,6 @@ import { toolsOptions } from "@devsafio/app/util/toolsOptions"
 const FormWorkProfile = () => {
   return (
     <>
-      <h1 className="py-3 font-bold font-sans text-2xl">PERFIL LABORAL</h1>
       <InfoWorkProfile />
       <form className="mt-8">
         <div className="grid grid-cols-3 gap-4">

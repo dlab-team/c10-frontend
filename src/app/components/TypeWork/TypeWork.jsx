@@ -5,9 +5,6 @@ import { workvisa } from "@devsafio/app/util/workvisa"
 function TypeWork() {
   return (
     <>
-      <h1 className="py-3 font-bold font-sans text-2xl">
-        ¿QUÉ TIPO DE TRABAJO ESTÁS BUSCANDO
-      </h1>
       <form>
         <div className="flex flex-col justify-center items-center my-4 mx-auto w-[996px]">
           <p className="mb-2 font-sans text-base font-medium text-center">

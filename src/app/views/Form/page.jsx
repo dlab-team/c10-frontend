@@ -1,6 +1,10 @@
 import React from "react"
 import Link from "next/link"
-import Stepper from "@devsafio/app/components/Stepper/Stepper"
+import FormWorkExperience from "@devsafio/app/components/FormWorkExperience/FormWorkExperience"
+import FormWorkProfile from "@devsafio/app/components/FormWorkProfile/FormWorkProfile"
+import InfoPersonal from "@devsafio/app/components/FormPersonalInformation/InfoPersonal"
+import EducationPersonal from "@devsafio/app/components/FormPersonalInformation/EducationPersonal"
+import TypeWork from "@devsafio/app/components/TypeWork/TypeWork"
 
 const FormView = () => {
   return (
@@ -61,7 +65,32 @@ const FormView = () => {
           </p>
         </div>
         <div className="mt-10 space-y-3">
-         <Stepper/>
+          <h2 className="py-3 font-bold font-sans text-2xl">
+            INFORMACION PERSONAL
+          </h2>
+          <InfoPersonal />
+        </div>
+        <div className="mt-10 space-y-3">
+          <h2 className="py-3 font-bold font-sans text-2xl">
+            PERFIL EDUCACIONAL
+          </h2>
+          <EducationPersonal />
+        </div>
+        <div className="mt-10 space-y-3">
+          <h2 className="py-3 font-bold font-sans text-2xl">PERFIL LABORAL</h2>
+          <FormWorkProfile />
+        </div>
+        <div className="space-y-3 mt-10">
+          <h2 className="py-3 font-bold font-sans text-2xl">
+            Experiencia Laboral
+          </h2>
+          <FormWorkExperience />
+        </div>
+        <div className="space-y-3 mt-10">
+        <h2 className="py-3 font-bold font-sans text-2xl">
+        ¿QUÉ TIPO DE TRABAJO ESTÁS BUSCANDO?
+        </h2>
+          <TypeWork/>
         </div>
       </div>
     </>
