@@ -4,8 +4,7 @@ import "./infoPersonal.css"
 
 const EducationPersonal = () => {
   const handleInputChange = (event) => {
-    const { name, value } = event.target
-   
+    
   }
 
   const handleSubmit = (e) => {
@@ -15,7 +14,7 @@ const EducationPersonal = () => {
     <form onSubmit={handleSubmit} className="form__education">
       
 
-      <label for="maxLevelEducation"  >
+      <label htmlFor="maxLevelEducation"  >
         ¿Cuál es tu máximo nivel educacional?*
       
       <select

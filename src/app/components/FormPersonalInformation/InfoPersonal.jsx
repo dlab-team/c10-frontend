@@ -128,8 +128,8 @@ const InfoPersonal = () => {
               cargo que postules,te pediremos que seas capaz de demostrarlo de
               manera practica durante el prceso de seleccion:
             </p>
-            {position?.map((pos) => (
-              <label>
+            {position?.map((pos, i) => (
+              <label key={i}>
                 <input type="checkbox" key={pos.id} value={pos.position} />
                 {pos.position}
               </label>
@@ -141,8 +141,8 @@ const InfoPersonal = () => {
               ¿Cual es tu estado laboral Actual?
               <span className="asterisco">*</span>
             </p>
-            {apiStatus?.map((status) => (
-              <label>
+            {apiStatus?.map((status, i) => (
+              <label key={i}>
                 <input
                   type="radio"
                   name="posicion laboral"
