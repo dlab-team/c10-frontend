@@ -61,7 +61,7 @@ const FormView = () => {
           </p>
         </div>
         <div className="mt-10 space-y-3">
-          <Stepper />
+         <Stepper/>
         </div>
       </div>
     </>

@@ -5,8 +5,8 @@ import { TiTick } from "react-icons/ti"
 import FormWorkProfile from "../FormWorkProfile/FormWorkProfile"
 import FormWorkExperience from "../FormWorkExperience/FormWorkExperience"
 import TypeWork from "../TypeWork/TypeWork"
-import PersonalProfile from "../PersonlProfile/PersonalProfile"
-import EducationInformation from "../EducationInformation/EducationInformation"
+import InfoPersonal from "../FormPersonalInformation/InfoPersonal"
+import EducationPersonal from "../FormPersonalInformation/EducationPersonal"
 const Stepper = () => {
   const steps = ["step1", "step2", "step3", "step4", "step5"]
   const [currentStep, setCurrentStep] = useState(1)
@@ -29,9 +29,9 @@ const Stepper = () => {
   const renderStepCompoent = (step) => {
     switch (step) {
       case 1:
-        return <PersonalProfile />
+        return <InfoPersonal />
       case 2:
-        return <EducationInformation />
+        return <EducationPersonal />
       case 3:
         return <FormWorkProfile />
       case 4:
