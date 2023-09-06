@@ -5,10 +5,7 @@ import "./infoPersonal.css"
 const EducationPersonal = () => {
   const handleInputChange = (event) => {
     const { name, value } = event.target
-    setFormData({
-      ...formData,
-      [name]: value,
-    })
+   
   }
 
   const handleSubmit = (e) => {
