@@ -14,10 +14,7 @@ const FormWorkProfile = () => {
             <p className="font-sans text-base font-medium">
               <span>Lenguaje de nivel 1</span>
             </p>
-            <Dropdown
-              options={lenguajeOptions}
-              defaulValue={false}
-            />
+            <Dropdown options={lenguajeOptions} defaulValue={false} />
           </div>
           <div className="flex flex-col items-center space-y-1">
             <p>
@@ -25,10 +22,7 @@ const FormWorkProfile = () => {
                 Bases o framwork nivel 1
               </span>
             </p>
-            <Dropdown
-              options={frameworksOptions}
-              defaulValue={false}
-            />
+            <Dropdown options={frameworksOptions} defaulValue={false} />
           </div>
           <div className="flex flex-col items-center space-y-1">
             <p>
@@ -44,10 +38,7 @@ const FormWorkProfile = () => {
                 Lenguaje de nivel 2
               </span>
             </p>
-            <Dropdown
-              options={lenguajeOptions}
-              defaulValue={false}
-            />
+            <Dropdown options={lenguajeOptions} defaulValue={false} />
           </div>
           <div className="flex flex-col items-center space-y-1">
             <p>
@@ -55,10 +46,7 @@ const FormWorkProfile = () => {
                 Bases o framwork 2
               </span>
             </p>
-            <Dropdown
-              options={frameworksOptions}
-              defaulValue={false}
-            />
+            <Dropdown options={frameworksOptions} defaulValue={false} />
           </div>
           <div className="flex flex-col items-center space-y-1">
             <p>
@@ -74,10 +62,7 @@ const FormWorkProfile = () => {
                 Lenguaje nivel 3
               </span>
             </p>
-            <Dropdown
-              options={lenguajeOptions}
-              defaulValue={false}
-            />
+            <Dropdown options={lenguajeOptions} defaulValue={false} />
           </div>
           <div className="flex flex-col items-center space-y-1">
             <p>
@@ -85,10 +70,7 @@ const FormWorkProfile = () => {
                 Bases o framwork 3
               </span>
             </p>
-            <Dropdown
-              options={frameworksOptions}
-              defaulValue={false}
-            />
+            <Dropdown options={frameworksOptions} defaulValue={false} />
           </div>
           <div className="flex flex-col items-center space-y-1">
             <p>
@@ -98,14 +80,14 @@ const FormWorkProfile = () => {
             </p>
             <Dropdown options={toolsOptions} defaulValue={false} />
           </div>
-          <div className="flex flex-col items-center my-4 mx-auto w-[996px]">
-            <p className="mb-2 font-sans text-base font-medium">
+          <div className="flex flex-col justify-center items-center my-4 mx-auto w-[996px]">
+            <p className="mb-2 font-sans text-base font-medium text-center">
               Indicanos alguna otra competencia, herramienta o tecnología que
               conozcas que creas importante agregar:
             </p>
             <input
               type="text"
-              className="mx-auto items-center border bg-sky-100 border-gray-300 rounded-md px-4 py-2 w-[996px] h-[102px]"
+              className="mx-auto items-center border bg-sky-100 border-gray-300 rounded-md px-4 py-2 w-[996px] h-[102px] text-center"
             />
           </div>
         </div>
