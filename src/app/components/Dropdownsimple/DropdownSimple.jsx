@@ -1,3 +1,4 @@
+"use client"
 import makeAnimated from "react-select/animated"
 import dynamic from "next/dynamic"
 

@@ -1,4 +1,4 @@
-"use client"
+
 
 import FormRegister from "@devsafio/app/components/FormRegister/FormRegister"
 // import background from "../../util/image/backgroundimage.png"
