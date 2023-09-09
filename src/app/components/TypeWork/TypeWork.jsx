@@ -1,6 +1,6 @@
 import { workinghours } from "@devsafio/app/util/workinghours"
 import Dropdown from "../Dropdown/Dropdown"
-import { currentsituation } from "@devsafio/app/util/curentsituation"
+import { currentsituation } from "@devsafio/app/util/currentsituation"
 import { workvisa } from "@devsafio/app/util/workvisa"
 function TypeWork() {
   return (

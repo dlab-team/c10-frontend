@@ -1,30 +1,9 @@
-export const toolsOptions = [
-  { value: "github", label: "Github" },
-  { value: "adobe illustrator", label: "Adobe Illustrator" },
-  { value: "adobe photoshop", label: "Adobe Photoshop" },
-  { value: "adobe xd", label: "Adobe XD" },
-  { value: "aws", label: "AWS" },
-  { value: "docker", label: "Docker" },
-  { value: "figma", label: "Figma" },
-  { value: "git", label: "GIT" },
-  { value: "google analytics", label: "Google Analytics" },
-  { value: "google cloud plataform", label: "Google Cloud Plataform" },
-  { value: "google data studio", label: "Google Data Studio" },
-  { value: "invision", label: "Invision" },
-  { value: "invision studio", label: "inVision Studio" },
-  { value: "jira", label: "Jira" },
-  { value: "kubernetes", label: "Kubernetes" },
-  { value: "marvel", label: "Marvel" },
-  { value: "microsoft excel", label: "Microsoft Excel" },
-  { value: "microsoft azure", label: "Microsoft Azure" },
-  { value: "miro", label: "Miro" },
-  { value: "power bi", label: "Power BI" },
-  { value: "proto.ia", label: "Proto.ia" },
-  { value: "qlik", label: "Qlik" },
-  { value: "sketch", label: "Sketch" },
-  { value: "spss", label: "SPSS" },
-  { value: "tableau", label: "Tableau" },
-  { value: "unity 3d", label: "Unity 3D" },
-  { value: "unreal engine", label: "Unreal Engine" },
-  { value: "zepelin", label: "Zepelin" },
-]
+export const toolsOptions = async () => {
+  try {
+    const response = await fetch('https://c10.leonardojose.dev/job/tools')
+    const dataTools = await response.json()
+    return dataTools
+  } catch (error) {
+    console.error('Error al obtener datos', error)
+  }
+}

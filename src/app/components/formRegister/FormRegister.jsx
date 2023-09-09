@@ -57,7 +57,7 @@ export default function FormRegister() {
         id_user_role: 1,
       }),
     })
-   
+
     const data = await response.json()
 
     console.log("Datos recibidos:", data)

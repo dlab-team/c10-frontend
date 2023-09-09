@@ -1,26 +1,9 @@
-export const frameworksOptions = [
-  { value: "oracle", label: "Oracle" },
-  { value: "cassandra", label: "Cassandra" },
-  { value: "sqlite", label: "SQlite" },
-  { value: "redis", label: "Redis" },
-  { value: "mongodb", label: "MongoDB" },
-  { value: "postgresql", label: "PostgreSQL" },
-  { value: "mysql", label: "MySQL" },
-  { value: "firebase realtime database", label: "Firebase Realtime Database" },
-  { value: "mariadb", label: "MariaDB" },
-  { value: "microsoft sql server", label: "Microsoft SQL Server" },
-  { value: "jquery#", label: "JQuery#" },
-  { value: "react", label: "React" },
-  { value: "spring", label: "Spring" },
-  { value: "agular", label: "Angular" },
-  { value: "vue.js", label: "Vue.js" },
-  { value: "laravel", label: "Laravel" },
-  { value: "django", label: "Django" },
-  { value: "ruby on rails", label: "Ruby On Rails" },
-  { value: "asp.net o asp.netcore", label: "ASP.NET o ASP.NETCore" },
-  { value: "flask", label: "Flask" },
-  { value: "express.js", label: "Express.js" },
-  { value: "fastapi", label: "FastAPI" },
-  { value: ".net", label: ".NET" },
-  { value: "node.js", label: "Node.js" },
-]
+export const frameworksOptions = async () => {
+  try {
+    const response = await fetch("https://c10.leonardojose.dev/job/frameworks")
+    const dataFramework = await response.json()
+    return dataFramework
+  } catch (error) {
+    console.error("Error al obtener datos", error)
+  }
+}
