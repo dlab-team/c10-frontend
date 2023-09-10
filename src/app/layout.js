@@ -15,13 +15,14 @@ const RootLayout = ({ children }) => {
       <body>
         <Provider>
           <Nav />
+
+
+          <section className="section-container overflow-y-auto overflow-x-hidden">
+            {children}
+          </section>
+
+          <Footer />
         </Provider>
-
-        <section className="section-container overflow-y-auto overflow-x-hidden">
-          {children}
-        </section>
-
-        <Footer />
       </body>
     </html>
   )
