@@ -1,12 +1,9 @@
 "use client"
-import { lenguajeOptions } from "@devsafio/app/util/lenguajeOptions"
-import { frameworksOptions } from "@devsafio/app/util/frameworksOptions"
 import Dropdown from "../Dropdown/Dropdown"
 import InfoWorkProfile from "../InfoWorkProfile/InfoWorkProfile"
-import { toolsOptions } from "@devsafio/app/util/toolsOptions"
 import { useEffect, useState } from "react"
 
-const FormWorkProfile = ({handleFormSubmitWorkProfile}) => {
+const FormWorkProfile = ({ handleFormSubmitWorkProfile }) => {
   const [frameworksData, setFrameworksData] = useState([])
   const [lenguajeData, setLenguajeData] = useState([])
   const [toolsData, setToolsData] = useState([])
@@ -14,39 +11,53 @@ const FormWorkProfile = ({handleFormSubmitWorkProfile}) => {
 
   useEffect(() => {
     const getData = async () => {
-      const frameworks = await frameworksOptions()
-      setFrameworksData(frameworks)
-      const lenguaje = await lenguajeOptions()
-      setLenguajeData(lenguaje)
-      const tools = await toolsOptions()
-      setToolsData(tools)
+      try {
+        const frameworksResponse = await fetch(
+          "https://c10.leonardojose.dev/job/frameworks",
+        )
+        const frameworks = await frameworksResponse.json()
+        setFrameworksData(frameworks)
+
+        const lenguajeResponse = await fetch(
+          "https://c10.leonardojose.dev/job/lenguajes",
+        )
+        const lenguaje = await lenguajeResponse.json()
+        setLenguajeData(lenguaje)
+
+        const toolsResponse = await fetch(
+          "https://c10.leonardojose.dev/job/tools",
+        )
+        const tools = await toolsResponse.json()
+        setToolsData(tools)
+      } catch (error) {
+        console.error(error)
+      }
     }
     getData()
   }, [])
 
-  
-
   const handleSubmit = async (event) => {
     event.preventDefault()
-      const formWorkProfileData = {
-        lenguaje: event.target.lenguaje.value,
-        frameworks: event.target.frameworks.value,
-        tools: event.target.tools.value,
-        others: event.target.others.value
-      }
+    const formWorkProfileData = {
+      lenguaje: event.target.lenguaje.value,
+      frameworks: event.target.frameworks.value,
+      tools: event.target.tools.value,
+      others: event.target.others.value,
+    }
     try {
-      const response = await fetch('https://c10.leonardojose.dev/job/profile',{
-        method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formWorkProfileData),
+      const response = await fetch("https://c10.leonardojose.dev/job/profile", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formWorkProfileData),
       })
-      const data = await response.json();
+      const data = await response.json()
       console.log(data)
-    } catch(error){
+    } catch (error) {
       console.error(error)
     }
+    handleFormSubmitWorkProfile(event)
   }
 
   return (
@@ -58,7 +69,11 @@ const FormWorkProfile = ({handleFormSubmitWorkProfile}) => {
             <p className="font-sans text-base font-medium">
               <span>Lenguaje de nivel 1</span>
             </p>
-            <Dropdown options={lenguajeData} defaulValue={false} />
+            <Dropdown
+              options={lenguajeData}
+              defaulValue={false}
+              onChange={(value) => setLenguajeData(value)}
+            />
           </div>
           <div className="flex flex-col items-center space-y-1">
             <p>
@@ -66,7 +81,11 @@ const FormWorkProfile = ({handleFormSubmitWorkProfile}) => {
                 Bases o framwork nivel 1
               </span>
             </p>
-            <Dropdown options={frameworksData} defaulValue={false} />
+            <Dropdown
+              options={frameworksData}
+              defaulValue={false}
+              onChange={(value) => setFrameworksData(value)}
+            />
           </div>
           <div className="flex flex-col items-center space-y-1">
             <p>
@@ -74,7 +93,11 @@ const FormWorkProfile = ({handleFormSubmitWorkProfile}) => {
                 Herramientas nivel 1
               </span>
             </p>
-            <Dropdown options={toolsData} defaulValue={false} />
+            <Dropdown
+              options={toolsData}
+              defaulValue={false}
+              onChange={(value) => setToolsData(value)}
+            />
           </div>
           <div className="flex flex-col items-center space-y-1">
             <p>
