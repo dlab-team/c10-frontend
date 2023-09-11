@@ -6,7 +6,7 @@ import InfoWorkProfile from "../InfoWorkProfile/InfoWorkProfile"
 import { toolsOptions } from "@devsafio/app/util/toolsOptions"
 import { useEffect, useState } from "react"
 
-const FormWorkProfile = () => {
+const FormWorkProfile = ({handleFormSubmitWorkProfile}) => {
   const [frameworksData, setFrameworksData] = useState([])
   const [lenguajeData, setLenguajeData] = useState([])
   const [toolsData, setToolsData] = useState([])
@@ -14,30 +14,39 @@ const FormWorkProfile = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const data = await frameworksOptions()
-      setFrameworksData(data)
+      const frameworks = await frameworksOptions()
+      setFrameworksData(frameworks)
+      const lenguaje = await lenguajeOptions()
+      setLenguajeData(lenguaje)
+      const tools = await toolsOptions()
+      setToolsData(tools)
     }
     getData()
   }, [])
 
-  useEffect(() => {
-    const getData = async () => {
-      const data = await lenguajeOptions()
-      setLenguajeData(data)
-    }
-    getData()
-  }, [])
+  
 
-  useEffect(() => {
-    const getData = async () => {
-      const data = await toolsOptions()
-      setToolsData(data)
-    }
-    getData()
-  }, [])
-
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
+      const formWorkProfileData = {
+        lenguaje: event.target.lenguaje.value,
+        frameworks: event.target.frameworks.value,
+        tools: event.target.tools.value,
+        others: event.target.others.value
+      }
+    try {
+      const response = await fetch('https://c10.leonardojose.dev/job/profile',{
+        method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formWorkProfileData),
+      })
+      const data = await response.json();
+      console.log(data)
+    } catch(error){
+      console.error(error)
+    }
   }
 
   return (

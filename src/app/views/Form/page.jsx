@@ -5,8 +5,14 @@ import FormWorkProfile from "@devsafio/app/components/FormWorkProfile/FormWorkPr
 import InfoPersonal from "@devsafio/app/components/FormPersonalInformation/InfoPersonal"
 import EducationPersonal from "@devsafio/app/components/FormPersonalInformation/EducationPersonal"
 import TypeWork from "@devsafio/app/components/TypeWork/TypeWork"
+import { handleFormSubmitWorkProfile } from "../../components/FormWorkProfile/FormWorkProfile"
 
 const FormView = () => {
+
+
+  const onClick = () => {
+    
+  }
   return (
     <>
       <div className="mx-auto my-12 overflow-y-auto w-11/12 space-y-3">
@@ -78,7 +84,7 @@ const FormView = () => {
         </div>
         <div className="mt-10 space-y-3">
           <h2 className="py-3 font-bold font-sans text-2xl">PERFIL LABORAL</h2>
-          <FormWorkProfile />
+          <FormWorkProfile handleSubmit={handleFormSubmitWorkProfile} />
         </div>
         <div className="space-y-3 mt-10">
           <h2 className="py-3 font-bold font-sans text-2xl">
@@ -87,10 +93,19 @@ const FormView = () => {
           <FormWorkExperience />
         </div>
         <div className="space-y-3 mt-10">
-        <h2 className="py-3 font-bold font-sans text-2xl">
-        ¿QUÉ TIPO DE TRABAJO ESTÁS BUSCANDO?
-        </h2>
-          <TypeWork/>
+          <h2 className="py-3 font-bold font-sans text-2xl">
+            ¿QUÉ TIPO DE TRABAJO ESTÁS BUSCANDO?
+          </h2>
+          <TypeWork />
+        </div>
+        <div>
+          <butt
+            type="button"
+            onClick={handleClick}
+            className="flex justify-center h-12 w-80 bg-blue-900 items-center border border-solid rounded-lg border-#140b34"
+          >
+            <p>Guardar</p>
+          </butt>
         </div>
       </div>
     </>
