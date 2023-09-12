@@ -1,4 +1,7 @@
+'use client'
 import Link from "next/link"
+import { signIn, useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 const links = [
   {
@@ -8,6 +11,13 @@ const links = [
 ]
 
 export default function LoginForm() {
+  const router = useRouter();
+  const { data: session, status } = useSession();
+
+  if (status === 'authenticated'){
+    router.push("/views/Form", { scroll: false });
+  }
+
   return (
     <>
       <div
@@ -22,7 +32,7 @@ export default function LoginForm() {
           <section className="flex flex-wrap-reverse justify-center gap-2">
             <button className="flex justify-center border border-[#000000] shadow-md rounded-lg px-6 pr-6 py-3 w-[326px] text-[#FFF] bg-[#008FF7]">Ingresa con Twitter</button>
             <button className="flex justify-center border border-[#000000] shadow-md rounded-lg px-6 pr-6 py-3 w-[326px] text-[#FFF] bg-[#232323]">Ingresa con GitHub</button>
-            <button className="flex justify-center border border-[#000000] shadow-md rounded-lg px-6 pr-6 py-3 w-[326px]">Ingresa con Google</button>
+            <button onClick={() => signIn('google')} className="flex justify-center border border-[#000000] shadow-md rounded-lg px-6 pr-6 py-3 w-[326px]">Ingresa con Google</button>
             <button className="flex justify-center border border-[#000000] shadow-md rounded-lg px-6 pr-6 py-3 w-[326px] text-[#FFF] bg-[#140B34]">Ingresa con LinkedIn</button>
             {links.map(({ label, route }) => (
               <Link className="flex justify-center border border-[#000000] shadow-md rounded-lg px-6 pr-6 py-3 w-[326px]" key={route} href={route}>{label}</Link>
