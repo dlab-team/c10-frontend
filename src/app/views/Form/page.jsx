@@ -1,14 +1,16 @@
-"use client"
 import React from "react"
+import Link from "next/link"
 import FormWorkExperience from "@devsafio/app/components/FormWorkExperience/FormWorkExperience"
 import FormWorkProfile from "@devsafio/app/components/FormWorkProfile/FormWorkProfile"
-import Link from "next/link"
+import InfoPersonal from "@devsafio/app/components/FormPersonalInformation/InfoPersonal"
+import EducationPersonal from "@devsafio/app/components/FormPersonalInformation/EducationPersonal"
+import TypeWork from "@devsafio/app/components/TypeWork/TypeWork"
 
 const FormView = () => {
   return (
     <>
       <div className="mx-auto my-12 overflow-y-auto w-11/12 space-y-3">
-        <div className="border rounded-2xl bg-purple-950">
+        <div className="border rounded-2xl bg-purple-950 text-white">
           <h2 className="text-4xl font-bold pb-8 font-sans">
             ¡POSTULA Y ÚNETE A DEVSAFÍO!
           </h2>
@@ -63,6 +65,18 @@ const FormView = () => {
           </p>
         </div>
         <div className="mt-10 space-y-3">
+          <h2 className="py-3 font-bold font-sans text-2xl">
+            INFORMACION PERSONAL
+          </h2>
+          <InfoPersonal />
+        </div>
+        <div className="mt-10 space-y-3">
+          <h2 className="py-3 font-bold font-sans text-2xl">
+            PERFIL EDUCACIONAL
+          </h2>
+          <EducationPersonal />
+        </div>
+        <div className="mt-10 space-y-3">
           <h2 className="py-3 font-bold font-sans text-2xl">PERFIL LABORAL</h2>
           <FormWorkProfile />
         </div>
@@ -71,6 +85,12 @@ const FormView = () => {
             Experiencia Laboral
           </h2>
           <FormWorkExperience />
+        </div>
+        <div className="space-y-3 mt-10">
+        <h2 className="py-3 font-bold font-sans text-2xl">
+        ¿QUÉ TIPO DE TRABAJO ESTÁS BUSCANDO?
+        </h2>
+          <TypeWork/>
         </div>
       </div>
     </>

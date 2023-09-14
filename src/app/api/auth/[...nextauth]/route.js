@@ -1,8 +1,13 @@
-import NextAuth from 'next-auth';
+import NextAuth from "next-auth";
+import ProviderGoogle from 'next-auth/providers/google';
 import CredentialsProvider from "next-auth/providers/credentials";
 
 const handler = NextAuth({
 	providers: [
+	ProviderGoogle({
+			clientId: process.env.GOOGLE_CLIENT_ID,
+			clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+		}),
 		CredentialsProvider({
 			name: 'credentials',
 			credentials: {
@@ -41,5 +46,4 @@ const handler = NextAuth({
   
 })
 
-
-export { handler as GET, handler as POST }
+export {handler as GET, handler as POST}

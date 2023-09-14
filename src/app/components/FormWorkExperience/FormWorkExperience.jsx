@@ -1,4 +1,3 @@
-"use client"
 import React from "react"
 import Dropdown from "../Dropdown/Dropdown"
 import DropdownSimple from "../Dropdownsimple/DropdownSimple"

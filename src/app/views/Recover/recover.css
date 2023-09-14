@@ -1,0 +1,58 @@
+.contain__form {
+  min-height: 85vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: #2738f5;
+}
+.section__form {
+  background-color: white;
+  border: solid 2px black;
+  border-radius: 5px;
+  height: 400px;
+  width: 100%;
+  max-width: 750px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form__account {
+  background-color: rgb(246, 245, 245);
+  border: solid 0.5px gray;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 5px;
+  padding: 8px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.form__account > h2 {
+  margin-bottom: 20px;
+  text-align: start;
+  font-size: 1.5rem;
+  line-height: 1;
+  font-weight: bold;
+  color: #140b34;
+  margin-left: -150px;
+}
+
+.form__account input {
+  width: 100%;
+  margin-top: 10px;
+}
+.contain__button {
+  display: flex;
+  gap: 1rem;
+  margin-left: 150px;
+}
+
+.text-black {
+  background-color: #2738f5;
+  color: white;
+}
