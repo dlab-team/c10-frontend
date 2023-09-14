@@ -135,7 +135,7 @@ export default function FormRegister() {
         <div className=" flex flex-col-reverse justify-center items-center mt-10">
           {error && <p className="text-red-500">{error}</p>}
           <button
-            type=""
+            type="button"
             onClick={handleClick}
             className="flex justify-center h-12 w-80 bg-blue-900 items-center border border-solid rounded-lg border-#140b34"
           >

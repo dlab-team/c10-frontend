@@ -1,18 +1,23 @@
-import React from "react"
+"use client"
+import React, { useRef } from "react"
 import Link from "next/link"
 import FormWorkExperience from "@devsafio/app/components/FormWorkExperience/FormWorkExperience"
 import FormWorkProfile from "@devsafio/app/components/FormWorkProfile/FormWorkProfile"
 import InfoPersonal from "@devsafio/app/components/FormPersonalInformation/InfoPersonal"
 import EducationPersonal from "@devsafio/app/components/FormPersonalInformation/EducationPersonal"
 import TypeWork from "@devsafio/app/components/TypeWork/TypeWork"
-import { handleFormSubmitWorkProfile } from "../../components/FormWorkProfile/FormWorkProfile"
+
 
 const FormView = () => {
 
+  const formWorkProfileRef = useRef({})
 
-  const onClick = () => {
-    
+  const handleFormSubmit= async (event) => {
+    event.preventDefault()
+    formWorkProfileRef.current.handleFormSubmit(event)
   }
+
+
   return (
     <>
       <div className="mx-auto my-12 overflow-y-auto w-11/12 space-y-3">
@@ -84,7 +89,7 @@ const FormView = () => {
         </div>
         <div className="mt-10 space-y-3">
           <h2 className="py-3 font-bold font-sans text-2xl">PERFIL LABORAL</h2>
-          <FormWorkProfile handleSubmit={handleFormSubmitWorkProfile} />
+          <FormWorkProfile handleFormSubmitWorkProfile={handleFormSubmit}  ref={formWorkProfileRef} />
         </div>
         <div className="space-y-3 mt-10">
           <h2 className="py-3 font-bold font-sans text-2xl">
@@ -99,13 +104,13 @@ const FormView = () => {
           <TypeWork />
         </div>
         <div>
-          <butt
+          <button
             type="button"
-            onClick={handleClick}
+            onClick={handleFormSubmit}
             className="flex justify-center h-12 w-80 bg-blue-900 items-center border border-solid rounded-lg border-#140b34"
           >
             <p>Guardar</p>
-          </butt>
+          </button>
         </div>
       </div>
     </>

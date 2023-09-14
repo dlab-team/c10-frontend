@@ -1,13 +1,17 @@
 "use client"
+import React from "react"
 import Dropdown from "../Dropdown/Dropdown"
 import InfoWorkProfile from "../InfoWorkProfile/InfoWorkProfile"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
-const FormWorkProfile = ({ handleFormSubmitWorkProfile }) => {
+const FormWorkProfile = React.forwardRef(({ handleFormSubmitWorkProfile}, ref) => {
   const [frameworksData, setFrameworksData] = useState([])
   const [lenguajeData, setLenguajeData] = useState([])
   const [toolsData, setToolsData] = useState([])
   const [others, setOthers] = useState("")
+  const [level, setLevel] = useState()
+  const [idUserProfile, setIdUserProfile] = useState()
+  
 
   useEffect(() => {
     const getData = async () => {
@@ -29,6 +33,11 @@ const FormWorkProfile = ({ handleFormSubmitWorkProfile }) => {
         )
         const tools = await toolsResponse.json()
         setToolsData(tools)
+        const idUserProfileResponse = await fetch(
+          "https://c10.leonardojose.dev/users",
+        )
+        const idUserProfile = await idUserProfileResponse.json()
+        setIdUserProfile(idUserProfile)
       } catch (error) {
         console.error(error)
       }
@@ -36,14 +45,33 @@ const FormWorkProfile = ({ handleFormSubmitWorkProfile }) => {
     getData()
   }, [])
 
+
   const handleSubmit = async (event) => {
     event.preventDefault()
+    handleFormSubmitWorkProfile(event)
     const formWorkProfileData = {
-      lenguaje: event.target.lenguaje.value,
-      frameworks: event.target.frameworks.value,
-      tools: event.target.tools.value,
-      others: event.target.others.value,
+      level,
+      idProgrammingLanguage: [],
+      idFrameworksOrDatabase: [],
+      idTools: [],
     }
+
+    if (level === 1) {
+      formWorkProfileData.idProgrammingLanguage = event.target.lenguaje.value
+      formWorkProfileData.idFrameworksOrDatabase = event.target.frameworks.value
+      formWorkProfileData.idTools = event.target.tools.value
+    } else if (level === 2) {
+      formWorkProfileData.idProgrammingLanguage = event.target.lenguaje2.value
+      formWorkProfileData.idFrameworksOrDatabase =
+        event.target.frameworks2.value
+      formWorkProfileData.idTools = event.target.tools2.value
+    } else if (level === 3) {
+      formWorkProfileData.idProgrammingLanguage = event.target.lenguaje3.value
+      formWorkProfileData.idFrameworksOrDatabase =
+        event.target.frameworks3.value
+      formWorkProfileData.idTools = event.target.tools3.value
+    }
+
     try {
       const response = await fetch("https://c10.leonardojose.dev/job/profile", {
         method: "POST",
@@ -57,13 +85,18 @@ const FormWorkProfile = ({ handleFormSubmitWorkProfile }) => {
     } catch (error) {
       console.error(error)
     }
-    handleFormSubmitWorkProfile(event)
   }
+  
+  React.useImperativeHandle(ref, () => ({
+    handleSubmit
+  }))
+
+  
 
   return (
     <>
       <InfoWorkProfile />
-      <form onSubmit={handleSubmit} className="mt-8">
+      <form onSubmit={handleSubmit} ref={ref} className="mt-8">
         <div className="grid grid-cols-3 gap-4">
           <div className="flex flex-col items-center space-y-1">
             <p className="font-sans text-base font-medium">
@@ -72,7 +105,10 @@ const FormWorkProfile = ({ handleFormSubmitWorkProfile }) => {
             <Dropdown
               options={lenguajeData}
               defaulValue={false}
-              onChange={(value) => setLenguajeData(value)}
+              onChange={(value) => {
+                setLevel(1)
+                setLenguajeData(value)
+              }}
             />
           </div>
           <div className="flex flex-col items-center space-y-1">
@@ -84,7 +120,10 @@ const FormWorkProfile = ({ handleFormSubmitWorkProfile }) => {
             <Dropdown
               options={frameworksData}
               defaulValue={false}
-              onChange={(value) => setFrameworksData(value)}
+              onChange={(value) => {
+                setLevel(1)
+                setFrameworksData(value)
+              }}
             />
           </div>
           <div className="flex flex-col items-center space-y-1">
@@ -96,7 +135,10 @@ const FormWorkProfile = ({ handleFormSubmitWorkProfile }) => {
             <Dropdown
               options={toolsData}
               defaulValue={false}
-              onChange={(value) => setToolsData(value)}
+              onChange={(value) => {
+                setLevel(1)
+                setToolsData(value)
+              }}
             />
           </div>
           <div className="flex flex-col items-center space-y-1">
@@ -105,7 +147,14 @@ const FormWorkProfile = ({ handleFormSubmitWorkProfile }) => {
                 Lenguaje de nivel 2
               </span>
             </p>
-            <Dropdown options={lenguajeData} defaulValue={false} />
+            <Dropdown
+              options={lenguajeData}
+              defaulValue={false}
+              onChange={(value) => {
+                setLevel(2)
+                setLenguajeData(value)
+              }}
+            />
           </div>
           <div className="flex flex-col items-center space-y-1">
             <p>
@@ -113,7 +162,14 @@ const FormWorkProfile = ({ handleFormSubmitWorkProfile }) => {
                 Bases o framwork 2
               </span>
             </p>
-            <Dropdown options={frameworksData} defaulValue={false} />
+            <Dropdown
+              options={frameworksData}
+              defaulValue={false}
+              onChange={(value) => {
+                setLevel(2)
+                setFrameworksData(value)
+              }}
+            />
           </div>
           <div className="flex flex-col items-center space-y-1">
             <p>
@@ -121,7 +177,14 @@ const FormWorkProfile = ({ handleFormSubmitWorkProfile }) => {
                 Herramientas nivel 2
               </span>
             </p>
-            <Dropdown options={toolsData} defaulValue={false} />
+            <Dropdown
+              options={toolsData}
+              defaulValue={false}
+              onChange={(value) => {
+                setLevel(2)
+                setToolsData(value)
+              }}
+            />
           </div>
           <div className="flex flex-col items-center space-y-1">
             <p>
@@ -129,7 +192,14 @@ const FormWorkProfile = ({ handleFormSubmitWorkProfile }) => {
                 Lenguaje nivel 3
               </span>
             </p>
-            <Dropdown options={lenguajeData} defaulValue={false} />
+            <Dropdown
+              options={lenguajeData}
+              defaulValue={false}
+              onChange={(value) => {
+                setLevel(3)
+                setLenguajeData(value)
+              }}
+            />
           </div>
           <div className="flex flex-col items-center space-y-1">
             <p>
@@ -137,7 +207,14 @@ const FormWorkProfile = ({ handleFormSubmitWorkProfile }) => {
                 Bases o framwork 3
               </span>
             </p>
-            <Dropdown options={frameworksData} defaulValue={false} />
+            <Dropdown
+              options={frameworksData}
+              defaulValue={false}
+              onChange={(value) => {
+                setLevel(3)
+                setFrameworksData(value)
+              }}
+            />
           </div>
           <div className="flex flex-col items-center space-y-1">
             <p>
@@ -145,7 +222,14 @@ const FormWorkProfile = ({ handleFormSubmitWorkProfile }) => {
                 Herramientas nivel 3
               </span>
             </p>
-            <Dropdown options={toolsData} defaulValue={false} />
+            <Dropdown
+              options={toolsData}
+              defaulValue={false}
+              onChange={(value) => {
+                setLevel(3)
+                setToolsData(value)
+              }}
+            />
           </div>
           <div className="flex flex-col justify-center items-center my-4 mx-auto w-[996px]">
             <p className="mb-2 font-sans text-base font-medium text-center">
@@ -163,6 +247,6 @@ const FormWorkProfile = ({ handleFormSubmitWorkProfile }) => {
       </form>
     </>
   )
-}
+})
 
 export default FormWorkProfile
