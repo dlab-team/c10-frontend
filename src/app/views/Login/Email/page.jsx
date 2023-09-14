@@ -3,7 +3,9 @@ import { storeAccess } from '@devsafio/app/util/accessUserManager';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import Image from 'next/image';
-import spin from './../../../../public/loading.png'
+import spin from './../../../../public/loading.png';
+import { signIn } from 'next-auth/react';
+
 
 async function authUser(email, password) {
 
@@ -113,6 +115,7 @@ export default function EmailLogin() {
                         className="flex justify-center border border-[#000000] mt-10 shadow-md rounded-lg px-6 pr-6 py-3 gap-2 text-azul disabled:bg-gray-300 disabled:opacity-50"
                         type="submit"
                         disabled={password.length === 0 || email.length === 0 || redirect === true}
+                        onClick={() => signIn('credentials')}
                     >
                         Login {redirect && <Image src={spin} className='animate-spin h-5 w-5 mr-3'></Image>}
                     </button>
