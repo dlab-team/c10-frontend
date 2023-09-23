@@ -4,46 +4,44 @@ import CredentialsProvider from "next-auth/providers/credentials";
 
 const handler = NextAuth({
 	providers: [
-	ProviderGoogle({
+		ProviderGoogle({
 			clientId: process.env.GOOGLE_CLIENT_ID,
 			clientSecret: process.env.GOOGLE_CLIENT_SECRET,
 		}),
 		CredentialsProvider({
-			name: 'credentials',
+			name: "Credentials",
 			credentials: {
-				email: { label: "Email", type: "email" },
-				password: { label: "password", type: "password" }
+				email: { label: "email", type: "email", placeholder: "example@example.com" },
+				password: { label: "Password", type: "password" },
 			},
 			async authorize(credentials, req) {
-				const res = await fetch('https://c10.leonardojose.dev/auth/signin', {
-					method: "Post",
+				const res = await fetch("https://c10.leonardojose.dev/auth/signin", {
+					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
 					},
-					body: JSON.stringify(credentials),
-				})
+					body: JSON.stringify({
+						email: credentials?.email,
+						password: credentials?.password,
+					}),
+				});
 				const user = await res.json();
-				console.log(user, " paso algo");
-				if (res.ok && user) return user;
-				return null;
+				console.log(user, " - ", req.ok);
+				if (user.access_token) {
+					return Promise.resolve(user);
+				} else {
+					return Promise.reject(new Error(403));
+				}
 			},
 		}),
 	],
-	callbacks: {
-    async jwt(token, user, account, profile, isNewUser) {
-      if (user?.token) {
-        token.token = user.token;
-        console.log(token.token);
-      }
-      console.log(token);
-      return token;
-    },
+	pages: {
+		signIn: "api/auth/signIn",
+	},
 
-    async session(session, token) {
-      return session;
-    }
-  },
-  
+	session: {
+		jwt: true,
+	},
 })
 
-export {handler as GET, handler as POST}
+export { handler as GET, handler as POST }

@@ -1,6 +1,6 @@
 'use client'
 import Link from "next/link";
-import { useSession } from "next-auth/react"
+import { useSession, signOut } from "next-auth/react"
 
 const links = [
   {
@@ -23,7 +23,7 @@ const links = [
 
 export function Nav() {
   const { data: session, status } = useSession()
-
+  
   return (
     <header className="py-6 px-10 grid top-0 w-full justify-between bg-azul items-center">
       <nav>
@@ -32,9 +32,11 @@ export function Nav() {
             <li key={route}>
               {status === 'authenticated' ? (
                 label === 'Inicia sesión' ? (
-                  <div className="flex flex-row content-center items-center gap-2">
-                    <img className="w-[40px]" src={session.user.image} />
+                  <div className="flex px-4 py-2 gap-4">
+                  { session.user.image?
+                    <img className="w-[30px]" src={session.user.image} /> : ""}
                     <p>{session.user.name}</p>
+                    <Link href="#" onClick={signOut}>Cerrar Sesion</Link>
                   </div>
                 ) : (
                   label === 'Regístrate' ? (
