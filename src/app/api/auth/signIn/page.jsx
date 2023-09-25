@@ -100,7 +100,7 @@ export default function EmailLogin() {
                     >
                         Login {redirect && <Image src={spin} className='animate-spin h-5 w-5 mr-3'></Image>}
                     </button>
-                    <Link className='text-blue-700 decoration-wavy' href="/views/Recovery">Haz Olvidado tu Contraseña? haz click aqui</Link>
+                    <Link className='text-blue-700 decoration-wavy' href="/views/Recover">Haz Olvidado tu Contraseña? haz click aqui</Link>
                 </form>
             </div>
         </>
