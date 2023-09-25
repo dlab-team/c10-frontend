@@ -3,18 +3,11 @@ import Link from "next/link"
 import { signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
-const links = [
-  {
-    label: "Ingresa con tu mail",
-    route: "/views/Login/Email",
-  },
-]
-
 export default function LoginForm() {
   const router = useRouter();
   const { data: session, status } = useSession();
 
-  if (status === 'authenticated'){
+  if (status === 'authenticated') {
     router.push("/views/Form", { scroll: false });
   }
 
@@ -34,9 +27,7 @@ export default function LoginForm() {
             <button className="flex justify-center border border-[#000000] shadow-md rounded-lg px-6 pr-6 py-3 w-[326px] text-[#FFF] bg-[#232323]">Ingresa con GitHub</button>
             <button onClick={() => signIn('google')} className="flex justify-center border border-[#000000] shadow-md rounded-lg px-6 pr-6 py-3 w-[326px]">Ingresa con Google</button>
             <button className="flex justify-center border border-[#000000] shadow-md rounded-lg px-6 pr-6 py-3 w-[326px] text-[#FFF] bg-[#140B34]">Ingresa con LinkedIn</button>
-            {links.map(({ label, route }) => (
-              <Link className="flex justify-center border border-[#000000] shadow-md rounded-lg px-6 pr-6 py-3 w-[326px]" key={route} href={route}>{label}</Link>
-            ))}
+            <Link href="/api/auth/signIn" className="flex justify-center border border-[#000000] shadow-md rounded-lg px-6 pr-6 py-3 w-[326px]">Ingresa con tu email</Link>
           </section>
         </div>
       </div>

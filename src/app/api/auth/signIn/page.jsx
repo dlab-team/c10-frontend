@@ -1,39 +1,20 @@
 'use client'
-import { storeAccess } from '@devsafio/app/util/accessUserManager';
-import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import Image from 'next/image';
 import spin from './../../../../public/loading.png';
 import { signIn } from 'next-auth/react';
+import Link from 'next/link';
+import { useRouter } from "next/navigation";
 
-
-async function authUser(email, password) {
-
-    const request = {
-        method: "Post",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            email,
-            password
-        }),
-    }
-
-    const acceso = await fetch('https://c10.leonardojose.dev/auth/signin', request)
-
-    return acceso;
-}
 
 export default function EmailLogin() {
-    const router = useRouter();
-
     const [email, setEmail] = useState('');
     const [emailError, setEmailError] = useState('');
     const [password, setPassword] = useState('');
     const [success, setSuccess] = useState('');
     const [successMessage, SetSuccessMessage] = useState('');
-    const [redirect, setRedirect] = useState('')
+    const [redirect, setRedirect] = useState('');
+    const router = useRouter();
 
     const validateEmail = (email) => {
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -58,27 +39,27 @@ export default function EmailLogin() {
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        // Realiza la autenticación si la validación de formato pasó
         if (!emailError && !(password.length === 0 || email.length === 0)) {
-            const readyForRedirect = await submitLogin();
-            setRedirect(readyForRedirect);
-            if (readyForRedirect) {
-                router.push("/views/Form", { scroll: false })
-            }
+            await submitLogin();
+            setRedirect(true);
         }
     };
 
     const submitLogin = async () => {
-        const isSuccess = await authUser(email, password);
-        const data = await isSuccess.json();
-        setSuccess(isSuccess.ok);
-        if (isSuccess.ok) {
-            storeAccess(data);
-            return true;
-        } else {
-            SetSuccessMessage(`Error: ${data.message}`)
-            return false;
-        }
+        signIn("credentials", {
+            email,
+            password,
+            redirect: false,
+        }).then(({ error }) => {
+            if (error === "403") {
+                setSuccess(false);
+                SetSuccessMessage("Credenciales Incorrectas");
+                setRedirect(false);
+            } else {
+                setSuccess(true);
+                router.push("/views/Form", { scroll: false })
+            }
+        })
     }
 
     return (
@@ -115,10 +96,11 @@ export default function EmailLogin() {
                         className="flex justify-center border border-[#000000] mt-10 shadow-md rounded-lg px-6 pr-6 py-3 gap-2 text-azul disabled:bg-gray-300 disabled:opacity-50"
                         type="submit"
                         disabled={password.length === 0 || email.length === 0 || redirect === true}
-                        onClick={() => signIn('credentials')}
+                        
                     >
                         Login {redirect && <Image src={spin} className='animate-spin h-5 w-5 mr-3'></Image>}
                     </button>
+                    <Link className='text-blue-700 decoration-wavy' href="/views/Recovery">Haz Olvidado tu Contraseña? haz click aqui</Link>
                 </form>
             </div>
         </>
