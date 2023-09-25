@@ -1,91 +1,99 @@
-import DropdownMultiSelect from "../Dropdown/Dropdown";
-import InfoWorkProfile from "../InfoWorkProfile/InfoWorkProfile";
+import { lenguajeOptions } from "@devsafio/app/util/lenguajeOptions"
+import { frameworksOptions } from "@devsafio/app/util/frameworksOptions"
+import Dropdown from "../Dropdown/Dropdown"
+import InfoWorkProfile from "../InfoWorkProfile/InfoWorkProfile"
+import { toolsOptions } from "@devsafio/app/util/toolsOptions"
 
 const FormWorkProfile = () => {
   return (
     <>
-      <h2>Perfil Laboral</h2>
       <InfoWorkProfile />
-      <form>
+      <form className="mt-8">
         <div className="grid grid-cols-3 gap-4">
-          <div>
-            <p>
+          <div className="flex flex-col items-center space-y-1">
+            <p className="font-sans text-base font-medium">
               <span>Lenguaje de nivel 1</span>
             </p>
-            <DropdownMultiSelect />
+            <Dropdown options={lenguajeOptions} defaulValue={false} />
           </div>
-          <div>
+          <div className="flex flex-col items-center space-y-1">
             <p>
-              <span>Bases o framwork nivel 1</span>
+              <span className="font-sans text-base font-medium">
+                Bases o framwork nivel 1
+              </span>
             </p>
-            <DropdownMultiSelect />
+            <Dropdown options={frameworksOptions} defaulValue={false} />
           </div>
-          <div>
+          <div className="flex flex-col items-center space-y-1">
             <p>
-              <span>Herramientas nivel 1</span>
+              <span className="font-sans text-base font-medium">
+                Herramientas nivel 1
+              </span>
             </p>
-            <DropdownMultiSelect />
+            <Dropdown options={toolsOptions} defaulValue={false} />
           </div>
-          <div>
+          <div className="flex flex-col items-center space-y-1">
             <p>
-              <span>Lenguaje de nivel 2</span>
+              <span className="font-sans text-base font-medium">
+                Lenguaje de nivel 2
+              </span>
             </p>
-            <DropdownMultiSelect />
+            <Dropdown options={lenguajeOptions} defaulValue={false} />
           </div>
-          <div>
+          <div className="flex flex-col items-center space-y-1">
             <p>
-              <span>Bases o framwork 2</span>
+              <span className="font-sans text-base font-medium">
+                Bases o framwork 2
+              </span>
             </p>
-            <DropdownMultiSelect />
+            <Dropdown options={frameworksOptions} defaulValue={false} />
           </div>
-          <div>
+          <div className="flex flex-col items-center space-y-1">
             <p>
-              <span>Herramientas nivel 2</span>
+              <span className="font-sans text-base font-medium">
+                Herramientas nivel 2
+              </span>
             </p>
-            <DropdownMultiSelect />
+            <Dropdown options={toolsOptions} defaulValue={false} />
           </div>
-          <div>
+          <div className="flex flex-col items-center space-y-1">
             <p>
-              <span>Herramientas nivel 3</span>
+              <span className="font-sans text-base font-medium">
+                Lenguaje nivel 3
+              </span>
             </p>
-            <DropdownMultiSelect />
+            <Dropdown options={lenguajeOptions} defaulValue={false} />
           </div>
-          <div>
+          <div className="flex flex-col items-center space-y-1">
             <p>
-              <span>Bases o framwork 3</span>
+              <span className="font-sans text-base font-medium">
+                Bases o framwork 3
+              </span>
             </p>
-            <DropdownMultiSelect />
+            <Dropdown options={frameworksOptions} defaulValue={false} />
           </div>
-          <div>
+          <div className="flex flex-col items-center space-y-1">
             <p>
-              <span>Herramientas nivel 3</span>
+              <span className="font-sans text-base font-medium">
+                Herramientas nivel 3
+              </span>
             </p>
-            <DropdownMultiSelect />
+            <Dropdown options={toolsOptions} defaulValue={false} />
           </div>
-          <div className="box bg-transparent flex flex-row justify-center w-full">
-            <div className="rectangle-wrapper border-0 h-26 w-96"></div>
-            <div className="rectangle bg-blue-100 border border-purple-900 border-opacity-50 rounded-lg h-26 fixed top-0 left-0 w-96"></div>
-          </div>
-          <div className="my-4">
-            <p className="mb-2">
+          <div className="flex flex-col justify-center items-center my-4 mx-auto w-[996px]">
+            <p className="mb-2 font-sans text-base font-medium text-center">
               Indicanos alguna otra competencia, herramienta o tecnología que
               conozcas que creas importante agregar:
             </p>
             <input
               type="text"
-              className="border border-gray-300 rounded-md px-4 py-2 w-full"
+              className="mx-auto items-center border bg-sky-100 border-gray-300 rounded-md px-4 py-2 w-[996px] h-[102px] text-center"
             />
           </div>
         </div>
-        <button
-          type="submit"
-          className="btn-app btn-app-blue mt-4"
-        >
-          Continuar
-        </button>
       </form>
     </>
-  );
-};
+  )
+}
 
-export default FormWorkProfile;
+export default FormWorkProfile

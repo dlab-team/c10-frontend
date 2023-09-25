@@ -1,25 +1,31 @@
-import './styles/globals.css'
+import React from "react"
+import "./styles/globals.css"
 import { Nav } from "./components/Nav/Nav"
-import { Footer } from './components/Footer/Footer'
+import { Footer } from "./components/Footer/Footer"
+import { Provider } from "./components/SessionProvider/Provider"
 
 export const metadata = {
-  title: 'Devsafío',
-  description: 'title',
+  title: "Devsafío",
+  description: "title",
 }
 
-export default function RootLayout({ children }) {
-
- return (
+const RootLayout = ({ children }) => {
+  return (
     <html lang="en">
-        
       <body>
-        <Nav />
-          <section>        
+        <Provider>
+          <Nav />
+
+
+          <section className="section-container overflow-y-auto overflow-x-hidden">
             {children}
           </section>
-        <Footer />
+
+          <Footer />
+        </Provider>
       </body>
-        
     </html>
   )
 }
+
+export default RootLayout

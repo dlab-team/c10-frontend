@@ -1,0 +1,48 @@
+.stepper {
+  @apply flex flex-col items-center;
+}
+.steps {
+  @apply flex flex-row justify-between w-full mt-8;
+}
+.step-item {
+    @apply relative flex flex-col items-center;
+  }
+  /*.step-item:before {
+    @apply content-[''] absolute w-full h-px bg-gray-400 top-[50%] left-[-50%] z-[-1];
+  }
+  .step-item:first-child:before {
+    @apply left-1/2;
+  }
+  .step-item.active:before,
+  .step-item.complete:before {
+    @apply bg-blue-500;
+  }*/
+  .step {
+    @apply w-10 h-10 flex items-center justify-center z-10 relative bg-slate-700 rounded-full font-semibold text-white;
+  }
+  .active .step {
+    @apply bg-sky-600;
+  }
+  .complete .step {
+    @apply bg-green-600;
+  }
+  .complete p {
+    @apply text-white;
+  }
+  .complete:not(:first-child):before,
+  .active:not(:first-child):before {
+    @apply bg-green-600;
+  }
+  .buttons {
+    @apply flex justify-between w-full mt-8;
+  }
+  .buttons .btn {
+    @apply bg-blue-500 text-white border-2 border-black text-2xl px-4 py-2 rounded;
+  }
+  .buttons .btn:first-child {
+    @apply mr-2;
+  }
+  .buttons .btn:last-child {
+    @apply ml-2;
+  }
+  

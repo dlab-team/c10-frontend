@@ -1,35 +1,69 @@
-*EDITAR*
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Proyecto Front-end C10
 
-## Getting Started
+Actualización y mejora para la pagina de cliente Devsafio
+http://www.desafio.com
 
-First, run the development server:
+## Tecnologias y dependencias.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
+- Javascript
+- React-Nextjs
+- Tailwind css
+- Eslint-Prettier
+- lint-staged
+- Git
+
+## Team Leader
+
+- **Leonardo Jose Castillo Lacruz**
+
+## Equipo Front-end
+
+- **Luis Molina**
+- **Patricio Dunstan**
+
+## Clonar e instalar
+
+1.**Clonar repositorio**
+c10-frontend
+
+2. **Realizar instalación de despencias**
+   Para realizar la instalación debes tener instalado Node.js y ejecutar el siguiente comando por terminal:
+
+~~ npm install ~~
+
+3. **Ejecución**
+   Para realizar la ejecución del proyecto y visualizar ejecutaremos en terminal el comando que corresponda según su administrador de paquetes:
+   ~~
+   npm run dev
+
+   yarn dev
+
 pnpm dev
-```
+~~
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. **Abrir la pagina y realizar visualización:**
+   Para abrir la pagina debes hacer click en el siguiente link (primero debes inicar el proyecto para visualizar la pagina):
+   **http://localhost:3000**
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+5. **Configuració de Eslint y Prettier:**
+   Para poder tener un estardar al momento de escribir codigo se agregaron las dependencias de desarrollo Eslint y prettier de los cuales:
+   Eslint: se encarga de estandarizar la forma en que se escribe codigo, ademas de detectar errores.
+   Prettier: se encarga de la identación y el formateo visual del mismo de forma atumatica
+   lint-staged: Se encarga de revisar los archivos modificados antes de subir el commit y avisa de posibles errores existentes, por ende se asegura de que no se hagan commits con errores existentes.
+   **Links:**
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- https://eslint.org/
+- https://prettier.io/
+- https://github.com/okonet/lint-staged
 
-## Learn More
+**SE DEBEN INSTALAR LAS EXTENCIONES DE PRETTIER - CODE FORMATTER (34 millons de descargas) Y LA EXTENCIÓ DE ESLINT(28.5 millones de descargas)**
 
-To learn more about Next.js, take a look at the following resources:
+6. **Diseño Figma de proyecto:**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- https://www.figma.com/file/QpoIAJnFkqQAhW6HwXMxzt/Devsaf%C3%ADo?node-id=97%3A1134&mode=dev
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+7. **Comandos para utilizar Eslint y configuración en setting.json**
+   ~~ npm run lint ~~~
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+8. **Prettier**
+   Prettier funciona con el autosave, cuando realizas el guardado trabaja pretter para formatear el codigo y ordenarlo, ademas en el archivo .eslintrc.js esta configurado para eslint y prettier trabajen en paralelo y no tengan insidencias o choques en su formate del codigo.
