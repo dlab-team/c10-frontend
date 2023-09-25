@@ -19,6 +19,7 @@
   align-items: center;
 }
 .form__account {
+  position: relative;
   background-color: rgb(246, 245, 245);
   border: solid 0.5px gray;
   display: flex;
@@ -33,13 +34,14 @@
 }
 
 .form__account > h2 {
+ 
   margin-bottom: 20px;
   text-align: start;
   font-size: 1.5rem;
   line-height: 1;
   font-weight: bold;
   color: #140b34;
-  margin-left: -150px;
+  margin-left: -140px;
 }
 
 .form__account input {
@@ -55,4 +57,27 @@
 .text-black {
   background-color: #2738f5;
   color: white;
+}
+
+
+.show__time{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  border-radius:15px;
+  margin-top: -150px ;
+  margin-left: 30px;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 200px;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  padding: 20px;
+  backdrop-filter: blur(10px)
+}
+
+.show__time > h1{
+  font-weight: bold;
+  font-size:20px;
 }
